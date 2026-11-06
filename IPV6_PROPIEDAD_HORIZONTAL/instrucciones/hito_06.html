@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hito 6: Configuración de DHCPv6 Stateful en Departamento 3</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #1e293b; line-height: 1.5; margin: 12px; }
+  h2 { color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
+  h3 { color: #1d4ed8; margin-top: 14px; margin-bottom: 6px; }
+  pre, code { background-color: #f1f5f9; font-family: Consolas, monospace; padding: 2px 5px; border-radius: 3px; }
+  pre { padding: 8px; border-left: 3px solid #2563eb; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h2>Hito 6 (6/10): Configuración de DHCPv6 Stateful en Departamento 3 (VLAN 30)</h2>
+
+<h3>1. Objetivo del Hito</h3>
+<p>Configurar <b>DHCPv6 Stateful</b> (con estado) en el router <code>R1</code> para el Departamento 3 (<code>VLAN 30</code>), de manera que el servidor DHCPv6 del router administre y asigne tanto la dirección IPv6 Global Unicast dentro de <code>2001:DB8:ACAD:30::/64</code> como el servidor DNS y el nombre de dominio al host <code>PC-D3</code>.</p>
+
+<h3>2. Contexto Técnico</h3>
+<p>En <b>DHCPv6 Stateful</b>, el anuncio RA en la subinterfaz <code>Gi0/0.30</code> activa el flag <b>M=1</b> (<code>ipv6 nd managed-config-flag</code>). Esto indica al cliente que debe solicitar su dirección IPv6 completa a un servidor DHCPv6 mediante el intercambio de 4 mensajes (<b>SARR</b>: <i>Solicit, Advertise, Request, Reply</i>), registrando el arrendamiento (<i>binding</i>) en la tabla de estado del router.</p>
+
+<h3>3. Dispositivos Involucrados</h3>
+<p>Router <code>R1</code> (pool <code>DEPT3_STATEFUL</code> y subinterfaz <code>Gi0/0.30</code>) y terminal <code>PC-D3</code>.</p>
+
+<h3>4. Comandos Necesarios</h3>
+<pre>
+R1(config)# ipv6 dhcp pool DEPT3_STATEFUL
+R1(config-dhcpv6)# address prefix 2001:DB8:ACAD:30::/64 lifetime 172800 86400
+R1(config-dhcpv6)# dns-server 2001:DB8:ACAD:99::10
+R1(config-dhcpv6)# domain-name propiedadhorizontal.local
+R1(config-dhcpv6)# exit
+!
+R1(config)# interface GigabitEthernet0/0.30
+R1(config-subif)# ipv6 nd managed-config-flag
+R1(config-subif)# ipv6 dhcp server DEPT3_STATEFUL
+</pre>
+
+<h3>5. Procedimiento Paso a Paso</h3>
+<ol>
+  <li>Cree el pool <code>DEPT3_STATEFUL</code> en <code>R1</code> e incluya la directiva <code>address prefix 2001:DB8:ACAD:30::/64 lifetime 172800 86400</code>, junto con <code>dns-server 2001:DB8:ACAD:99::10</code> y <code>domain-name propiedadhorizontal.local</code>.</li>
+  <li>En la subinterfaz <code>GigabitEthernet0/0.30</code>, active <code>ipv6 nd managed-config-flag</code> y vincule el pool mediante <code>ipv6 dhcp server DEPT3_STATEFUL</code>.</li>
+  <li>En <code>PC-D3</code> &rarr; <b>Desktop</b> &rarr; <b>IP Configuration</b>, active el modo dinámico IPv6 (DHCP / Auto Config) y verifique la concesión de dirección y DNS.</li>
+</ol>
+
+<h3>6. Resultado Esperado</h3>
+<p><code>PC-D3</code> recibe una dirección IPv6 administrada en el prefijo <code>2001:DB8:ACAD:30::/64</code>, gateway <code>FE80::1</code> y servidor DNS <code>2001:DB8:ACAD:99::10</code>, y <code>R1</code> registra clientes activos en el pool <code>DEPT3_STATEFUL</code>.</p>
+
+<h3>7. Evidencia Solicitada al Estudiante</h3>
+<p>Salida de <code>show ipv6 dhcp pool</code> y <code>show ipv6 dhcp binding</code> en <code>R1</code>, más <code>ipv6config /all</code> en <code>PC-D3</code>.</p>
+
+<h3>8. Criterio de Evaluación</h3>
+<p>Verificación automática del pool <code>DEPT3_STATEFUL</code> con <code>address prefix 2001:DB8:ACAD:30::/64</code>, el comando <code>ipv6 nd managed-config-flag</code> en <code>Gi0/0.30</code> y la activación IPv6 en <code>PC-D3</code>.</p>
+</body>
+</html>

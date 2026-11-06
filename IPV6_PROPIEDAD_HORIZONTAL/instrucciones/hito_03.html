@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hito 3: Configuración de Subinterfaces e IPv6 en el Router R1</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #1e293b; line-height: 1.5; margin: 12px; }
+  h2 { color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
+  h3 { color: #1d4ed8; margin-top: 14px; margin-bottom: 6px; }
+  pre, code { background-color: #f1f5f9; font-family: Consolas, monospace; padding: 2px 5px; border-radius: 3px; }
+  pre { padding: 8px; border-left: 3px solid #2563eb; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h2>Hito 3 (3/10): Configuración de Enrutamiento IPv6 y Subinterfaces 802.1Q en R1</h2>
+
+<h3>1. Objetivo del Hito</h3>
+<p>Habilitar el reenvío global de paquetes IPv6 (<code>ipv6 unicast-routing</code>) en <code>R1</code> y configurar las subinterfaces 802.1Q (<code>Gi0/0.10</code> a <code>Gi0/0.50</code>) junto con las interfaces hacia <code>SRV-DNS</code> (<code>Gi0/1</code>) y <code>Cloud-PT</code> (<code>Gi0/2</code>).</p>
+
+<h3>2. Contexto Técnico</h3>
+<p>Por defecto, los routers Cisco IOS no reenvían paquetes IPv6 ni envían mensajes ICMPv6 Router Advertisement (RA) hasta que se ejecuta el comando global <code>ipv6 unicast-routing</code>. Además, el uso de una dirección Link-Local uniforme (<code>FE80::1</code>) en cada subinterfaz facilita la identificación del gateway predeterminado en todos los departamentos.</p>
+
+<h3>3. Dispositivos Involucrados</h3>
+<p>Router principal <code>R1</code> (Cisco 2911).</p>
+
+<h3>4. Comandos Necesarios</h3>
+<pre>
+R1(config)# ipv6 unicast-routing
+R1(config)# interface GigabitEthernet0/0
+R1(config-if)# no ip address
+R1(config-if)# no shutdown
+!
+R1(config)# interface GigabitEthernet0/0.10
+R1(config-subif)# encapsulation dot1Q 10
+R1(config-subif)# ipv6 address FE80::1 link-local
+R1(config-subif)# ipv6 address 2001:DB8:ACAD:10::1/64
+R1(config-subif)# ipv6 enable
+!
+R1(config)# interface GigabitEthernet0/0.20
+R1(config-subif)# encapsulation dot1Q 20
+R1(config-subif)# ipv6 address FE80::1 link-local
+R1(config-subif)# ipv6 address 2001:DB8:ACAD:20::1/64
+R1(config-subif)# ipv6 enable
+!
+R1(config)# interface GigabitEthernet0/0.30
+R1(config-subif)# encapsulation dot1Q 30
+R1(config-subif)# ipv6 address FE80::1 link-local
+R1(config-subif)# ipv6 address 2001:DB8:ACAD:30::1/64
+R1(config-subif)# ipv6 enable
+!
+R1(config)# interface GigabitEthernet0/0.40
+R1(config-subif)# encapsulation dot1Q 40
+R1(config-subif)# ipv6 address FE80::1 link-local
+R1(config-subif)# ipv6 address 2001:DB8:ACAD:40::1/64
+R1(config-subif)# ipv6 enable
+!
+R1(config)# interface GigabitEthernet0/0.50
+R1(config-subif)# encapsulation dot1Q 50
+R1(config-subif)# ipv6 address FE80::1 link-local
+R1(config-subif)# ipv6 address 2001:DB8:ACAD:50::1/64
+R1(config-subif)# ipv6 enable
+!
+R1(config)# interface GigabitEthernet0/1
+R1(config-if)# ipv6 address FE80::1 link-local
+R1(config-if)# ipv6 address 2001:DB8:ACAD:99::1/64
+R1(config-if)# ipv6 enable
+R1(config-if)# no shutdown
+!
+R1(config)# interface GigabitEthernet0/2
+R1(config-if)# ipv6 address FE80::1 link-local
+R1(config-if)# ipv6 address 2001:DB8:ACAD:FF::1/64
+R1(config-if)# ipv6 enable
+R1(config-if)# no shutdown
+</pre>
+
+<h3>5. Procedimiento Paso a Paso</h3>
+<ol>
+  <li>Active <code>ipv6 unicast-routing</code> en modo de configuración global en <code>R1</code>.</li>
+  <li>Encienda la interfaz física <code>GigabitEthernet0/0</code> con <code>no shutdown</code>.</li>
+  <li>Configure las cinco subinterfaces <code>Gi0/0.10</code> a <code>Gi0/0.50</code> con su respectiva etiqueta <code>encapsulation dot1Q</code> y dirección IPv6 GUA y Link-Local.</li>
+  <li>Configure <code>GigabitEthernet0/1</code> (red de servicios <code>2001:DB8:ACAD:99::1/64</code>) y <code>GigabitEthernet0/2</code> (WAN <code>2001:DB8:ACAD:FF::1/64</code>).</li>
+</ol>
+
+<h3>6. Resultado Esperado</h3>
+<p>La tabla de enrutamiento IPv6 de <code>R1</code> muestra las 7 redes directamente conectadas (<code>C</code>) y sus direcciones locales (<code>L</code>).</p>
+
+<h3>7. Evidencia Solicitada al Estudiante</h3>
+<p>Salida de <code>show ipv6 interface brief</code> y <code>show ipv6 route</code> en <code>R1</code>.</p>
+
+<h3>8. Criterio de Evaluación</h3>
+<p>Verificación automática de <code>IPv6 Unicast Routing = 1</code>, estado de puertos en <code>R1</code> y líneas de subinterfaces en <code>RUNNINGCONFIG</code>.</p>
+</body>
+</html>

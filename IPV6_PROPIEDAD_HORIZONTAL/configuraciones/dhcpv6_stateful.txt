@@ -1,0 +1,21 @@
+! =====================================================================
+! Fragmento de referencia: Configuración DHCPv6 Stateful en R1
+! Aplica a: Departamento 3 (VLAN 30)
+! Mecanismo: El servidor DHCPv6 asigna la dirección GUA, DNS y Dominio (M=1)
+! =====================================================================
+ipv6 unicast-routing
+!
+ipv6 dhcp pool DEPT3_STATEFUL
+ address prefix 2001:DB8:ACAD:30::/64 lifetime 172800 86400
+ dns-server 2001:DB8:ACAD:99::10
+ domain-name propiedadhorizontal.local
+!
+interface GigabitEthernet0/0.30
+ description Gateway_Departamento_3_DHCPv6_Stateful
+ encapsulation dot1Q 30
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:30::1/64
+ ipv6 enable
+ ipv6 nd managed-config-flag
+ ipv6 dhcp server DEPT3_STATEFUL
+!

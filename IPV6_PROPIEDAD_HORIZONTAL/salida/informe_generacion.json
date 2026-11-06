@@ -1,0 +1,179 @@
+{
+  "proyecto": "Implementación de Direccionamiento Dinámico en una Red IPv6 (Propiedad Horizontal)",
+  "fecha_generacion": "2026-11-05T23:31:33.384755",
+  "backend_criptografico": "twofish128-python-optimizado",
+  "plataforma_ejecucion": "win32",
+  "python_version": "3.14.4",
+  "estado_global": "EXITOSO",
+  "resumen_topologia": {
+    "total_dispositivos": 14,
+    "total_enlaces": 13,
+    "total_departamentos": 5,
+    "total_hitos_html": 10
+  },
+  "resumen_scoring": {
+    "dispositivos_evaluados": 8,
+    "modelos_sin_shape_solo_topologia": [
+      "AccessPoint-PT",
+      "Cloud-PT"
+    ],
+    "total_puntos_evaluacion": 95,
+    "componentes_activos": "Ip, Switching, Routing, Physical, Other",
+    "detalle_dispositivos": {
+      "R1": {
+        "modelo": "2911",
+        "items_evaluados": 12,
+        "total_puntos": 20
+      },
+      "SRV-DNS": {
+        "modelo": "Server-PT",
+        "items_evaluados": 4,
+        "total_puntos": 8
+      },
+      "SW1": {
+        "modelo": "2960-24TT",
+        "items_evaluados": 19,
+        "total_puntos": 32
+      },
+      "PC-D1": {
+        "modelo": "PC-PT",
+        "items_evaluados": 4,
+        "total_puntos": 7
+      },
+      "PC-D2": {
+        "modelo": "PC-PT",
+        "items_evaluados": 4,
+        "total_puntos": 7
+      },
+      "PC-D3": {
+        "modelo": "PC-PT",
+        "items_evaluados": 4,
+        "total_puntos": 7
+      },
+      "PC-D4": {
+        "modelo": "PC-PT",
+        "items_evaluados": 4,
+        "total_puntos": 7
+      },
+      "PC-D5": {
+        "modelo": "PC-PT",
+        "items_evaluados": 4,
+        "total_puntos": 7
+      }
+    }
+  },
+  "validaciones_pkt": {
+    "topologia_inicial.pkt": {
+      "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_inicial.pkt",
+      "formato": "pkt",
+      "tamano_bytes": 80690,
+      "xml_bytes": 1037242,
+      "dispositivos": 14,
+      "enlaces": 13,
+      "valido": true,
+      "errores": [],
+      "advertencias": []
+    },
+    "topologia_resuelta.pkt": {
+      "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt",
+      "formato": "pkt",
+      "tamano_bytes": 82379,
+      "xml_bytes": 1054708,
+      "dispositivos": 14,
+      "enlaces": 13,
+      "valido": true,
+      "errores": [],
+      "advertencias": []
+    },
+    "topologia_diagnostico_hito10.pkt": {
+      "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_diagnostico_hito10.pkt",
+      "formato": "pkt",
+      "tamano_bytes": 82377,
+      "xml_bytes": 1054534,
+      "dispositivos": 14,
+      "enlaces": 13,
+      "valido": true,
+      "errores": [],
+      "advertencias": []
+    }
+  },
+  "validaciones_pka": {
+    "Grupo_IPV6_Estudiante.pka": {
+      "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+      "formato": "pka",
+      "tamano_bytes": 349241,
+      "xml_bytes": 5617652,
+      "redes_embebidas": 3,
+      "paginas_instrucciones": 10,
+      "nodos_initialsetup": 804,
+      "nodos_comparisons": 4721,
+      "puntos_evaluacion": 89,
+      "password_configurada": true,
+      "component_list": "Ip, Switching, Routing, Physical, Other",
+      "valido": true,
+      "errores": [],
+      "advertencias": []
+    },
+    "Grupo_IPV6_Maestro.pka": {
+      "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Maestro.pka",
+      "formato": "pka",
+      "tamano_bytes": 352801,
+      "xml_bytes": 5652584,
+      "redes_embebidas": 3,
+      "paginas_instrucciones": 10,
+      "nodos_initialsetup": 804,
+      "nodos_comparisons": 4721,
+      "puntos_evaluacion": 89,
+      "password_configurada": true,
+      "component_list": "Ip, Switching, Routing, Physical, Other",
+      "valido": true,
+      "errores": [],
+      "advertencias": []
+    },
+    "Grupo_IPV6_Diagnostico_Hito10.pka": {
+      "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Diagnostico_Hito10.pka",
+      "formato": "pka",
+      "tamano_bytes": 352791,
+      "xml_bytes": 5652236,
+      "redes_embebidas": 3,
+      "paginas_instrucciones": 10,
+      "nodos_initialsetup": 804,
+      "nodos_comparisons": 4721,
+      "puntos_evaluacion": 89,
+      "password_configurada": true,
+      "component_list": "Ip, Switching, Routing, Physical, Other",
+      "valido": true,
+      "errores": [],
+      "advertencias": []
+    }
+  },
+  "auditoria_ipv6_resuelta": {
+    "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt",
+    "valido": true,
+    "verificaciones": {
+      "r1_ipv6_unicast_routing": true,
+      "r1_subif_vlan_10": true,
+      "r1_subif_vlan_20": true,
+      "r1_subif_vlan_30": true,
+      "r1_subif_vlan_40": true,
+      "r1_subif_vlan_50": true,
+      "r1_pool_stateful_prefix": true,
+      "sw1_trunk_gi0_1": true,
+      "PC-D1_ipv6_activo": true,
+      "PC-D2_ipv6_activo": true,
+      "PC-D3_ipv6_activo": true,
+      "PC-D4_ipv6_activo": true,
+      "PC-D5_ipv6_activo": true,
+      "srv_dns_habilitado": true,
+      "srv_dns_registros_aaaa": true
+    },
+    "errores": []
+  },
+  "auditoria_diagnostico_hito10": {
+    "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_diagnostico_hito10.pkt",
+    "valido": true,
+    "fallo_1_vlan40_omitida_en_troncal": true,
+    "fallo_2_flag_o_omitido_en_gi0_0_20": true,
+    "fallo_3_dhcp_server_omitido_en_gi0_0_30": true
+  }
+}

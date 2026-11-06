@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hito 9: Captura y Análisis de Paquetes ICMPv6 y DHCPv6</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #1e293b; line-height: 1.5; margin: 12px; }
+  h2 { color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
+  h3 { color: #1d4ed8; margin-top: 14px; margin-bottom: 6px; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 12px; }
+  th, td { border: 1px solid #cbd5e1; padding: 6px 8px; text-align: left; }
+  th { background-color: #eff6ff; color: #1e3a8a; }
+  pre, code { background-color: #f1f5f9; font-family: Consolas, monospace; padding: 2px 5px; border-radius: 3px; }
+  pre { padding: 8px; border-left: 3px solid #2563eb; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h2>Hito 9 (9/10): Captura y Análisis en Modo Simulación (ICMPv6 NDP y DHCPv6)</h2>
+
+<h3>1. Objetivo del Hito</h3>
+<p>Analizar en el <b>Modo Simulación</b> de Packet Tracer el intercambio de mensajes de control ICMPv6 Neighbor Discovery Protocol (RS, RA, NS, NA) y DHCPv6 (Solicit, Advertise, Request, Information-Request, Reply) en los diferentes departamentos.</p>
+
+<h3>2. Contexto Técnico</h3>
+<p>IPv6 reemplaza ARP y el descubrimiento de router de IPv4 mediante mensajes ICMPv6:</p>
+<table>
+  <thead>
+    <tr><th>Protocolo / Mensaje</th><th>Tipo</th><th>Dirección Destino Típica</th><th>Propósito en el Laboratorio</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>ICMPv6 Router Solicitation (RS)</td><td>133</td><td><code>FF02::2</code> (All-Routers)</td><td>Host solicita prefijo y flags M/O al iniciar autoconfiguración.</td></tr>
+    <tr><td>ICMPv6 Router Advertisement (RA)</td><td>134</td><td><code>FF02::1</code> (All-Nodes)</td><td><code>R1</code> anuncia el prefijo <code>/64</code> y los bits <code>M</code> y <code>O</code>.</td></tr>
+    <tr><td>ICMPv6 Neighbor Solicitation (NS)</td><td>135</td><td><code>FF02::1:FFxx:xxxx</code></td><td>Detección de Direcciones Duplicadas (DAD) y resolución de MAC.</td></tr>
+    <tr><td>ICMPv6 Neighbor Advertisement (NA)</td><td>136</td><td>Unicast / <code>FF02::1</code></td><td>Respuesta con la dirección física de enlace (MAC).</td></tr>
+    <tr><td>DHCPv6 Information-Request / Reply</td><td>11 / 7</td><td><code>FF02::1:2</code></td><td>Usado en Deptos 2 y 4 (Stateless, <code>O=1</code>) para pedir DNS/dominio.</td></tr>
+    <tr><td>DHCPv6 Solicit / Advertise / Request / Reply</td><td>1 / 2 / 3 / 7</td><td><code>FF02::1:2</code></td><td>Usado en Depto 3 (Stateful, <code>M=1</code>) para solicitar IPv6 + DNS.</td></tr>
+  </tbody>
+</table>
+
+<h3>3. Dispositivos Involucrados</h3>
+<p><code>PC-D1</code> (SLAAC), <code>PC-D2</code> (Stateless), <code>PC-D3</code> (Stateful) y <code>R1</code>.</p>
+
+<h3>4. Comandos Necesarios</h3>
+<pre>
+R1# debug ipv6 nd
+R1# debug ipv6 dhcp detail
+</pre>
+
+<h3>5. Procedimiento Paso a Paso</h3>
+<ol>
+  <li>Cambie Packet Tracer a <b>Simulation Mode</b> y filtre los eventos visibles únicamente a <b>ICMPv6</b>, <b>NDP</b> y <b>DHCPv6</b>.</li>
+  <li>En <code>PC-D1</code>, cambie IPv6 de <i>Static</i> a <i>Auto Config</i> y avance con <b>Capture / Forward</b>: observe el envío de <b>RS</b> y la llegada del <b>RA</b> con <code>M=0, O=0</code> (sin tráfico DHCPv6 posterior).</li>
+  <li>Repita en <code>PC-D2</code> (VLAN 20): observe cómo tras recibir el <b>RA</b> con <code>O=1</code>, el host emite un paquete <b>DHCPv6 Information-Request</b>.</li>
+  <li>Repita en <code>PC-D3</code> (VLAN 30): observe cómo tras recibir el <b>RA</b> con <code>M=1</code>, el host inicia la secuencia completa <b>Solicit &rarr; Advertise &rarr; Request &rarr; Reply</b>.</li>
+</ol>
+
+<h3>6. Resultado Esperado</h3>
+<p>Identificación precisa de los campos de cabecera ICMPv6 RA (Flags <code>M</code> y <code>O</code>, opción de prefijo) y de las opciones DHCPv6 (IA_NA, DNS Recursive Name Server, Domain Search List).</p>
+
+<h3>7. Evidencia Solicitada al Estudiante</h3>
+<p>Capturas de pantalla de la ventana <i>PDU Information at Device</i> para los paquetes RA y DHCPv6 en los Departamentos 1, 2 y 3.</p>
+
+<h3>8. Criterio de Evaluación</h3>
+<p>Correspondencia exacta entre los flags configurados en <code>R1</code> (<code>Gi0/0.10</code>, <code>Gi0/0.20</code>, <code>Gi0/0.30</code>) y el comportamiento observado en los paquetes capturados.</p>
+</body>
+</html>

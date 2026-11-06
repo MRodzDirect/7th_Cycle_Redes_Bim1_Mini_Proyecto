@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hito 4: Configuración de SLAAC en Departamentos 1 y 5</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #1e293b; line-height: 1.5; margin: 12px; }
+  h2 { color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
+  h3 { color: #1d4ed8; margin-top: 14px; margin-bottom: 6px; }
+  pre, code { background-color: #f1f5f9; font-family: Consolas, monospace; padding: 2px 5px; border-radius: 3px; }
+  pre { padding: 8px; border-left: 3px solid #2563eb; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h2>Hito 4 (4/10): Configuración de SLAAC Puro en Departamentos 1 (VLAN 10) y 5 (VLAN 50)</h2>
+
+<h3>1. Objetivo del Hito</h3>
+<p>Configurar la autoconfiguración de direcciones sin estado (<b>SLAAC</b>) para el Departamento 1 (<code>VLAN 10</code>) y el Departamento 5 (<code>VLAN 50</code>), verificando que los terminales <code>PC-D1</code> y <code>PC-D5</code> generen automáticamente su dirección GUA a partir del anuncio RA del router sin intervención de un servidor DHCPv6.</p>
+
+<h3>2. Contexto Técnico</h3>
+<p>En <b>SLAAC puro</b>, el router envía mensajes ICMPv6 <i>Router Advertisement</i> (Tipo 134) con los flags <code>M=0</code> (<i>Managed Address Configuration</i> desactivado) y <code>O=0</code> (<i>Other Stateful Configuration</i> desactivado). El host toma el prefijo <code>/64</code> anunciado (con flag <code>A=1</code>) y construye su identificador de interfaz mediante EUI-64 o generación aleatoria.</p>
+
+<h3>3. Dispositivos Involucrados</h3>
+<p>Router <code>R1</code> (subinterfaces <code>Gi0/0.10</code> y <code>Gi0/0.50</code>), <code>PC-D1</code> y <code>PC-D5</code>.</p>
+
+<h3>4. Comandos Necesarios</h3>
+<pre>
+! En R1, verificar que Gi0/0.10 y Gi0/0.50 NO tengan flags M ni O activos:
+R1# show ipv6 interface GigabitEthernet0/0.10
+R1# show ipv6 interface GigabitEthernet0/0.50
+
+! En PC-D1 y PC-D5 (Command Prompt):
+C:\&gt; ipv6config /all
+</pre>
+
+<h3>5. Procedimiento Paso a Paso</h3>
+<ol>
+  <li>Verifique en <code>R1</code> que las subinterfaces <code>Gi0/0.10</code> y <code>Gi0/0.50</code> tengan los prefijos <code>2001:DB8:ACAD:10::1/64</code> y <code>2001:DB8:ACAD:50::1/64</code> y que no tengan configurados <code>ipv6 nd managed-config-flag</code> ni <code>ipv6 nd other-config-flag</code>.</li>
+  <li>Abra <code>PC-D1</code> &rarr; pestaña <b>Desktop</b> &rarr; <b>IP Configuration</b> y seleccione <b>Auto Config</b> en la sección IPv6 Configuration.</li>
+  <li>Repita el paso anterior en <code>PC-D5</code> seleccionando <b>Auto Config</b> en IPv6 Configuration.</li>
+  <li>Observe cómo ambas PCs adquieren una dirección dentro de <code>2001:DB8:ACAD:10::/64</code> y <code>2001:DB8:ACAD:50::/64</code> respectivamente, y fijan su Default Gateway en <code>FE80::1</code>.</li>
+</ol>
+
+<h3>6. Resultado Esperado</h3>
+<p><code>PC-D1</code> obtiene dirección GUA en el prefijo <code>2001:DB8:ACAD:10::/64</code> y <code>PC-D5</code> obtiene dirección GUA en el prefijo <code>2001:DB8:ACAD:50::/64</code> mediante SLAAC.</p>
+
+<h3>7. Evidencia Solicitada al Estudiante</h3>
+<p>Salida de <code>ipv6config /all</code> en <code>PC-D1</code> y <code>PC-D5</code> mostrando la dirección GUA autoconfigurada y el gateway <code>FE80::1</code>.</p>
+
+<h3>8. Criterio de Evaluación</h3>
+<p>Verificación automática de <code>IPv6 Enable = 1</code> y <code>IPv6 Auto Config = 1</code> en <code>PC-D1</code> y <code>PC-D5</code>.</p>
+</body>
+</html>

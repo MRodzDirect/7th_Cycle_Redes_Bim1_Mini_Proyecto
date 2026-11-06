@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hito 5: Configuración de DHCPv6 Stateless en Departamentos 2 y 4</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #1e293b; line-height: 1.5; margin: 12px; }
+  h2 { color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
+  h3 { color: #1d4ed8; margin-top: 14px; margin-bottom: 6px; }
+  pre, code { background-color: #f1f5f9; font-family: Consolas, monospace; padding: 2px 5px; border-radius: 3px; }
+  pre { padding: 8px; border-left: 3px solid #2563eb; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h2>Hito 5 (5/10): Configuración de DHCPv6 Stateless en Departamentos 2 (VLAN 20) y 4 (VLAN 40)</h2>
+
+<h3>1. Objetivo del Hito</h3>
+<p>Configurar <b>DHCPv6 Stateless</b> (sin estado) en el router <code>R1</code> para los Departamentos 2 (<code>VLAN 20</code>) y 4 (<code>VLAN 40</code>), de modo que los hosts generen su propia dirección IPv6 mediante SLAAC pero obtengan la dirección del servidor DNS (<code>2001:DB8:ACAD:99::10</code>) y el nombre de dominio (<code>propiedadhorizontal.local</code>) desde el router vía DHCPv6.</p>
+
+<h3>2. Contexto Técnico</h3>
+<p>En <b>DHCPv6 Stateless</b>, el anuncio RA lleva activado el flag <b>O=1</b> (<code>ipv6 nd other-config-flag</code>) y mantiene <b>M=0</b>. Al recibir el RA, el host autoconfigura su IPv6 con SLAAC y seguidamente envía un mensaje DHCPv6 <i>Information-Request</i> (Tipo 11) a la dirección multicast <code>FF02::1:2</code> para solicitar opciones adicionales (DNS y dominio), a lo que el router responde con un mensaje DHCPv6 <i>Reply</i> (Tipo 7).</p>
+
+<h3>3. Dispositivos Involucrados</h3>
+<p>Router <code>R1</code> (pools DHCPv6 y subinterfaces <code>Gi0/0.20</code> y <code>Gi0/0.40</code>), <code>PC-D2</code> y <code>PC-D4</code>.</p>
+
+<h3>4. Comandos Necesarios</h3>
+<pre>
+R1(config)# ipv6 dhcp pool DEPT2_STATELESS
+R1(config-dhcpv6)# dns-server 2001:DB8:ACAD:99::10
+R1(config-dhcpv6)# domain-name propiedadhorizontal.local
+R1(config-dhcpv6)# exit
+!
+R1(config)# ipv6 dhcp pool DEPT4_STATELESS
+R1(config-dhcpv6)# dns-server 2001:DB8:ACAD:99::10
+R1(config-dhcpv6)# domain-name propiedadhorizontal.local
+R1(config-dhcpv6)# exit
+!
+R1(config)# interface GigabitEthernet0/0.20
+R1(config-subif)# ipv6 nd other-config-flag
+R1(config-subif)# ipv6 dhcp server DEPT2_STATELESS
+!
+R1(config)# interface GigabitEthernet0/0.40
+R1(config-subif)# ipv6 nd other-config-flag
+R1(config-subif)# ipv6 dhcp server DEPT4_STATELESS
+</pre>
+
+<h3>5. Procedimiento Paso a Paso</h3>
+<ol>
+  <li>Cree los pools <code>DEPT2_STATELESS</code> y <code>DEPT4_STATELESS</code> en <code>R1</code> definiendo <code>dns-server 2001:DB8:ACAD:99::10</code> y <code>domain-name propiedadhorizontal.local</code>.</li>
+  <li>En las subinterfaces <code>Gi0/0.20</code> y <code>Gi0/0.40</code>, active el flag O con <code>ipv6 nd other-config-flag</code> y asocie cada pool con <code>ipv6 dhcp server</code>.</li>
+  <li>Active <b>Auto Config</b> en la configuración IPv6 de <code>PC-D2</code> y <code>PC-D4</code>.</li>
+</ol>
+
+<h3>6. Resultado Esperado</h3>
+<p><code>PC-D2</code> y <code>PC-D4</code> obtienen dirección IPv6 en <code>2001:DB8:ACAD:20::/64</code> y <code>2001:DB8:ACAD:40::/64</code> respectivamente, además del servidor DNS <code>2001:DB8:ACAD:99::10</code>.</p>
+
+<h3>7. Evidencia Solicitada al Estudiante</h3>
+<p>Salida de <code>show ipv6 dhcp pool</code> en <code>R1</code> y <code>ipv6config /all</code> en <code>PC-D2</code> y <code>PC-D4</code>.</p>
+
+<h3>8. Criterio de Evaluación</h3>
+<p>Verificación automática de los pools <code>DEPT2_STATELESS</code> y <code>DEPT4_STATELESS</code>, el comando <code>ipv6 nd other-config-flag</code> en <code>Gi0/0.20</code> y <code>Gi0/0.40</code>, y la autoconfiguración en <code>PC-D2</code> y <code>PC-D4</code>.</p>
+</body>
+</html>

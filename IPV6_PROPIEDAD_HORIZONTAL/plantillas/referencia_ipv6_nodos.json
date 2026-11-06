@@ -1,0 +1,97 @@
+{
+  "descripcion": "Catálogo documentado de nodos reales de evaluación (INITIALSETUP / COMPARISONS) extraídos de tools/device_shapes.json y etiquetas XML del esquema Packet Tracer 9.0.1.",
+  "modelos_con_shape_evaluacion": [
+    "2911",
+    "2960-24TT",
+    "PC-PT",
+    "Server-PT"
+  ],
+  "modelos_solo_topologia": [
+    "AccessPoint-PT",
+    "Cloud-PT"
+  ],
+  "nodos_evaluacion_por_modelo": {
+    "2911": {
+      "identidad": {
+        "path": "/R1/Host Name",
+        "id": "Host Name",
+        "component": "Other"
+      },
+      "enrutamiento_ipv6": {
+        "path": "/R1/Routesv6/IPv6 Unicast Routing",
+        "id": "Ipv6 Unicast Routing",
+        "component": "Routing",
+        "expected": "1"
+      },
+      "dns_router": {
+        "domain_path": "/R1/DNS/IP Domain Name",
+        "domain_id": "IP Domain Name",
+        "nameserver_v6_path": "/R1/DNS/IPv6 Name Server",
+        "nameserver_v6_id": "IPv6 Name Server"
+      },
+      "interfaces_fisicas": [
+        "/R1/Ports/GigabitEthernet0/0/Port Status",
+        "/R1/Ports/GigabitEthernet0/0/Port Up",
+        "/R1/Ports/GigabitEthernet0/1/Port Status",
+        "/R1/Ports/GigabitEthernet0/1/Port Up",
+        "/R1/Ports/GigabitEthernet0/1/IPv6 Enable",
+        "/R1/Ports/GigabitEthernet0/2/Port Status",
+        "/R1/Ports/GigabitEthernet0/2/Port Up",
+        "/R1/Ports/GigabitEthernet0/2/IPv6 Enable"
+      ],
+      "lineas_cli_running_config": {
+        "container_path": "/R1/IOS Configuration/Running Configuration/LINES",
+        "component": "Other",
+        "formato_id_global": "<comando>",
+        "formato_id_submodo": "<comando_padre> <subcomando>"
+      }
+    },
+    "2960-24TT": {
+      "identidad": {
+        "path": "/SW1/Host Name",
+        "id": "Host Name",
+        "component": "Other"
+      },
+      "vlans_container": {
+        "path": "/SW1/VLANS",
+        "id": "VLANS",
+        "component": "Switching",
+        "child_structure": "<NODE><NAME eclass='5' headNode='true' nodeValue='{vlan_id}'>VLAN {vlan_id}</NAME><ID>{vlan_id}</ID><COMPONENTS>Switching</COMPONENTS><POINTS>0</POINTS><NODE><NAME eclass='5' headNode='false' nodeValue='{vlan_name}' variableEnabled='true'>VLAN Name</NAME><ID>VLAN Name</ID><COMPONENTS>Switching</COMPONENTS><POINTS>1</POINTS></NODE></NODE>"
+      },
+      "puertos_acceso": {
+        "ports": ["FastEthernet0/1", "FastEthernet0/2", "FastEthernet0/3", "FastEthernet0/4", "FastEthernet0/5", "FastEthernet0/6", "FastEthernet0/7", "FastEthernet0/8", "FastEthernet0/9", "FastEthernet0/10"],
+        "leaf_ids": ["Power", "Port Up", "Access VLAN", "Dynamic Mode", "PortFast"]
+      },
+      "puerto_troncal": {
+        "port": "GigabitEthernet0/1",
+        "leaf_ids": ["Power", "Port Up", "Dynamic Mode"]
+      },
+      "lineas_cli_running_config": {
+        "container_path": "/SW1/IOS Configuration/Running Configuration/LINES",
+        "component": "Other"
+      }
+    },
+    "PC-PT": {
+      "puerto": "FastEthernet0",
+      "nodos_evaluados": [
+        {"path": "/PC-Dx/Ports/FastEthernet0/Port Status", "id": "Power", "expected": "1"},
+        {"path": "/PC-Dx/Ports/FastEthernet0/Port Up", "id": "Port Up", "expected": "1"},
+        {"path": "/PC-Dx/Ports/FastEthernet0/IPv6 Enable", "id": "IPv6 Enable", "expected": "1"},
+        {"path": "/PC-Dx/Ports/FastEthernet0/IPv6 Auto Config", "id": "Auto Config", "expected": "1"},
+        {"path": "/PC-Dx/Default Gateway IPv6", "id": "Default Gateway IPv6", "expected": "2001:DB8:ACAD:XX::1"},
+        {"path": "/PC-Dx/DNS Server IPv6", "id": "DNS Server IPv6", "expected": "2001:DB8:ACAD:99::10 o 0.0.0.0"}
+      ]
+    },
+    "Server-PT": {
+      "puerto": "FastEthernet0",
+      "nodos_evaluados": [
+        {"path": "/SRV-DNS/Ports/FastEthernet0/Port Status", "id": "Power", "expected": "1"},
+        {"path": "/SRV-DNS/Ports/FastEthernet0/Port Up", "id": "Port Up", "expected": "1"},
+        {"path": "/SRV-DNS/Ports/FastEthernet0/IPv6 Enable", "id": "IPv6 Enable", "expected": "1"},
+        {"path": "/SRV-DNS/Default Gateway IPv6", "id": "Default Gateway IPv6", "expected": "2001:DB8:ACAD:99::1"},
+        {"path": "/SRV-DNS/DNS Server IPv6", "id": "DNS Server IPv6", "expected": "2001:DB8:ACAD:99::10"},
+        {"path": "/SRV-DNS/DNS Server/DNS Enable", "id": "DNS Enable", "expected": "1"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hito 7: Configuración del Servidor DNS y Servicios Internos</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #1e293b; line-height: 1.5; margin: 12px; }
+  h2 { color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
+  h3 { color: #1d4ed8; margin-top: 14px; margin-bottom: 6px; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 12px; }
+  th, td { border: 1px solid #cbd5e1; padding: 6px 8px; text-align: left; }
+  th { background-color: #eff6ff; color: #1e3a8a; }
+  pre, code { background-color: #f1f5f9; font-family: Consolas, monospace; padding: 2px 5px; border-radius: 3px; }
+  pre { padding: 8px; border-left: 3px solid #2563eb; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h2>Hito 7 (7/10): Configuración del Servidor DNS (SRV-DNS) y Registros AAAA</h2>
+
+<h3>1. Objetivo del Hito</h3>
+<p>Configurar el direccionamiento IPv6 estático del servidor de servicios internos <code>SRV-DNS</code> (<code>2001:DB8:ACAD:99::10/64</code>) y habilitar el servicio DNS con registros de tipo <b>AAAA</b> para la resolución de nombres en el dominio <code>propiedadhorizontal.local</code>.</p>
+
+<h3>2. Contexto Técnico</h3>
+<p>Los departamentos con DHCPv6 Stateless (VLAN 20 y 40) y DHCPv6 Stateful (VLAN 30) reciben automáticamente la dirección <code>2001:DB8:ACAD:99::10</code> como servidor DNS IPv6. Para que los residentes puedan resolver nombres de servicios del edificio, <code>SRV-DNS</code> debe publicar registros <b>AAAA</b> (IPv6 host address records, RFC 3596).</p>
+
+<table>
+  <thead>
+    <tr><th>Nombre de Dominio (FQDN)</th><th>Tipo</th><th>Dirección IPv6 Destino</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>dns.propiedadhorizontal.local</code></td><td>AAAA</td><td><code>2001:DB8:ACAD:99::10</code></td></tr>
+    <tr><td><code>portal.propiedadhorizontal.local</code></td><td>AAAA</td><td><code>2001:DB8:ACAD:99::10</code></td></tr>
+    <tr><td><code>administracion.propiedadhorizontal.local</code></td><td>AAAA</td><td><code>2001:DB8:ACAD:99::10</code></td></tr>
+    <tr><td><code>r1.propiedadhorizontal.local</code></td><td>AAAA</td><td><code>2001:DB8:ACAD:99::1</code></td></tr>
+  </tbody>
+</table>
+
+<h3>3. Dispositivos Involucrados</h3>
+<p>Servidor <code>SRV-DNS</code> (Server-PT) y Router <code>R1</code> (interfaz <code>GigabitEthernet0/1</code>).</p>
+
+<h3>4. Comandos y Parámetros Necesarios</h3>
+<pre>
+! En SRV-DNS (Desktop -> IP Configuration):
+IPv6 Address      : 2001:DB8:ACAD:99::10 / 64
+Link-Local Address: FE80::99:10
+IPv6 Gateway      : 2001:DB8:ACAD:99::1
+IPv6 DNS Server   : 2001:DB8:ACAD:99::10
+</pre>
+
+<h3>5. Procedimiento Paso a Paso</h3>
+<ol>
+  <li>Abra <code>SRV-DNS</code> &rarr; <b>Desktop</b> &rarr; <b>IP Configuration</b> y asigne la dirección IPv6 estática <code>2001:DB8:ACAD:99::10/64</code>, gateway <code>2001:DB8:ACAD:99::1</code> y DNS <code>2001:DB8:ACAD:99::10</code>.</li>
+  <li>Vaya a la pestaña <b>Services</b> &rarr; <b>DNS</b>, active el servicio (<b>DNS Service = On</b>) y agregue los registros <b>AAAA Record</b> de la tabla superior.</li>
+  <li>En los puntos de acceso <code>AP-D1</code> a <code>AP-D5</code>, verifique que sus puertos estén encendidos y con los SSID <code>Depto1_IPv6</code> a <code>Depto5_IPv6</code>.</li>
+</ol>
+
+<h3>6. Resultado Esperado</h3>
+<p>Desde <code>PC-D2</code>, <code>PC-D3</code> y <code>PC-D4</code> es posible hacer <code>ping 2001:DB8:ACAD:99::10</code> y resolver <code>portal.propiedadhorizontal.local</code>.</p>
+
+<h3>7. Evidencia Solicitada al Estudiante</h3>
+<p>Captura de la tabla de registros AAAA en <code>SRV-DNS</code> y prueba de <code>ping portal.propiedadhorizontal.local</code> desde <code>PC-D3</code>.</p>
+
+<h3>8. Criterio de Evaluación</h3>
+<p>Verificación automática de <code>IPv6 Enable = 1</code>, <code>Default Gateway IPv6 = 2001:DB8:ACAD:99::1</code> y <code>DNS Enable = 1</code> en <code>SRV-DNS</code>.</p>
+</body>
+</html>

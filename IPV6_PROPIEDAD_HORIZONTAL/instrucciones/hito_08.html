@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hito 8: Pruebas de Conectividad y Validación de Direccionamiento</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #1e293b; line-height: 1.5; margin: 12px; }
+  h2 { color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
+  h3 { color: #1d4ed8; margin-top: 14px; margin-bottom: 6px; }
+  pre, code { background-color: #f1f5f9; font-family: Consolas, monospace; padding: 2px 5px; border-radius: 3px; }
+  pre { padding: 8px; border-left: 3px solid #2563eb; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h2>Hito 8 (8/10): Pruebas de Conectividad Inter-VLAN y Validación Integral IPv6</h2>
+
+<h3>1. Objetivo del Hito</h3>
+<p>Verificar extremo a extremo la conectividad IPv6 entre los 5 departamentos (VLANs 10 a 50), el servidor <code>SRV-DNS</code> y el borde WAN, contrastando las diferencias operativas entre SLAAC, DHCPv6 Stateless y DHCPv6 Stateful.</p>
+
+<h3>2. Contexto Técnico</h3>
+<p>A través del enrutamiento inter-VLAN en <code>R1</code>, los paquetes IPv6 originados en cualquier departamento alcanzan las demás subredes <code>/64</code> y la red de servicios <code>2001:DB8:ACAD:99::/64</code>. Sin embargo, solo los hosts en VLANs con DHCPv6 (Stateless o Stateful) reciben automáticamente el parámetro de servidor DNS sin configuración manual adicional.</p>
+
+<h3>3. Dispositivos Involucrados</h3>
+<p>Todos los terminales (<code>PC-D1</code> a <code>PC-D5</code>), <code>SRV-DNS</code>, <code>SW1</code> y <code>R1</code>.</p>
+
+<h3>4. Comandos Necesarios</h3>
+<pre>
+! Desde el Command Prompt de cada PC (PC-D1 a PC-D5):
+C:\&gt; ipv6config /all
+C:\&gt; ping 2001:DB8:ACAD:10::1
+C:\&gt; ping 2001:DB8:ACAD:20::1
+C:\&gt; ping 2001:DB8:ACAD:30::1
+C:\&gt; ping 2001:DB8:ACAD:40::1
+C:\&gt; ping 2001:DB8:ACAD:50::1
+C:\&gt; ping 2001:DB8:ACAD:99::10
+C:\&gt; tracert 2001:DB8:ACAD:99::10
+</pre>
+
+<h3>5. Procedimiento Paso a Paso</h3>
+<ol>
+  <li>Ejecute <code>ipv6config /all</code> en <code>PC-D1</code> a <code>PC-D5</code> y registre en una tabla comparativa: Dirección GUA obtenida, Link-Local, Default Gateway y Servidor DNS.</li>
+  <li>Ejecute pruebas de <code>ping</code> desde cada PC hacia su gateway local y hacia <code>SRV-DNS</code> (<code>2001:DB8:ACAD:99::10</code>).</li>
+  <li>Ejecute <code>nslookup portal.propiedadhorizontal.local</code> en <code>PC-D1</code> (SLAAC puro) y compárelo con <code>PC-D2</code> (Stateless) y <code>PC-D3</code> (Stateful).</li>
+</ol>
+
+<h3>6. Resultado Esperado</h3>
+<p>100% de éxito en los pings ICMPv6 hacia los gateways y hacia <code>2001:DB8:ACAD:99::10</code> desde los 5 departamentos.</p>
+
+<h3>7. Evidencia Solicitada al Estudiante</h3>
+<p>Tabla comparativa completada con las salidas de <code>ipv6config /all</code> y capturas de <code>ping</code> / <code>tracert</code> desde los 5 departamentos.</p>
+
+<h3>8. Criterio de Evaluación</h3>
+<p>Todos los enlaces arriba (<code>Port Up = 1</code>) y direccionamiento IPv6 operativo en los 5 departamentos y en <code>SRV-DNS</code>.</p>
+</body>
+</html>

@@ -1,0 +1,1239 @@
+<DEVICE>
+    <ENGINE>
+     <TYPE customModel="" model="2960-24TT">Switch</TYPE>
+     <NAME translate="true">SW1</NAME>
+     <POWER>true</POWER>
+     <DESCRIPTION />
+     <MODULE>
+      <TYPE>eNonRemovableModule</TYPE>
+      <MODEL />
+      <SLOT>
+       <TYPE>eNonRemovableModule</TYPE>
+       <MODULE>
+        <TYPE>eNonRemovableModule</TYPE>
+        <MODEL />
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>true</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B601</MACADDRESS>
+         <BIA>0040.0B1E.B601</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>true</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B602</MACADDRESS>
+         <BIA>0040.0B1E.B602</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B603</MACADDRESS>
+         <BIA>0040.0B1E.B603</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B604</MACADDRESS>
+         <BIA>0040.0B1E.B604</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B605</MACADDRESS>
+         <BIA>0040.0B1E.B605</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B606</MACADDRESS>
+         <BIA>0040.0B1E.B606</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B607</MACADDRESS>
+         <BIA>0040.0B1E.B607</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B608</MACADDRESS>
+         <BIA>0040.0B1E.B608</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B609</MACADDRESS>
+         <BIA>0040.0B1E.B609</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B60A</MACADDRESS>
+         <BIA>0040.0B1E.B60A</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B60B</MACADDRESS>
+         <BIA>0040.0B1E.B60B</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B60C</MACADDRESS>
+         <BIA>0040.0B1E.B60C</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B60D</MACADDRESS>
+         <BIA>0040.0B1E.B60D</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B60E</MACADDRESS>
+         <BIA>0040.0B1E.B60E</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B60F</MACADDRESS>
+         <BIA>0040.0B1E.B60F</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B610</MACADDRESS>
+         <BIA>0040.0B1E.B610</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B611</MACADDRESS>
+         <BIA>0040.0B1E.B611</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B612</MACADDRESS>
+         <BIA>0040.0B1E.B612</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B613</MACADDRESS>
+         <BIA>0040.0B1E.B613</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B614</MACADDRESS>
+         <BIA>0040.0B1E.B614</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B615</MACADDRESS>
+         <BIA>0040.0B1E.B615</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B616</MACADDRESS>
+         <BIA>0040.0B1E.B616</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B617</MACADDRESS>
+         <BIA>0040.0B1E.B617</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperFastEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>100000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B618</MACADDRESS>
+         <BIA>0040.0B1E.B618</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperGigabitEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>1000000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B619</MACADDRESS>
+         <BIA>0040.0B1E.B619</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+        <PORT>
+         <ACL_IN_ID />
+         <ACL_OUT_ID />
+         <ACLv6_IN_ID />
+         <ACLv6_OUT_ID />
+         <TIMEOUT>14400000</TIMEOUT>
+         <TYPE>eCopperGigabitEthernet</TYPE>
+         <POWER>true</POWER>
+         <MEDIATYPE>0</MEDIATYPE>
+         <PINS>true</PINS>
+         <FIBERMULTIMODE>true</FIBERMULTIMODE>
+         <BANDWIDTH>1000000</BANDWIDTH>
+         <SPEED>100</SPEED>
+         <FULLDUPLEX>false</FULLDUPLEX>
+         <AUTONEGOTIATEBANDWIDTH>true</AUTONEGOTIATEBANDWIDTH>
+         <AUTONEGOTIATESPEED>true</AUTONEGOTIATESPEED>
+         <AUTONEGOTIATEDUPLEX>true</AUTONEGOTIATEDUPLEX>
+         <MACADDRESS>0040.0B1E.B61A</MACADDRESS>
+         <BIA>0040.0B1E.B61A</BIA>
+         <CLOCKRATE>2000000</CLOCKRATE>
+         <CLOCKRATEFLAG>false</CLOCKRATEFLAG>
+         <DESCRIPTION />
+         <CHANNEL>0</CHANNEL>
+         <CHANNEL5GHZ>0</CHANNEL5GHZ>
+         <COVERAGERANGE>0</COVERAGERANGE>
+         <SAVED_FULLDUPLEX>false</SAVED_FULLDUPLEX>
+         <UP_METHOD>5</UP_METHOD>
+        </PORT>
+       </MODULE>
+      </SLOT>
+     </MODULE>
+     <CUSTOM_VARS>AAAAAgAAABAAUABUAF8ATQBPAEQARQBMAAAACgAAAAASADIAOQA2ADAALQAyADQAVABUAAAAFABQAFQAXwBWAEUAUgBTAEkATwBOAAAACgAAAAAIADEAMgAuADI=</CUSTOM_VARS>
+     <CUSTOM_INTERFACE />
+     <SYS_CONTACT />
+     <SYS_LOCATION />
+     <COORD_SETTINGS>
+      <X_COORD>1269.51</X_COORD>
+      <Y_COORD>1236.93</Y_COORD>
+      <Z_COORD>0</Z_COORD>
+     </COORD_SETTINGS>
+     <SERIALNUMBER>CAT1010FV6Y-</SERIALNUMBER>
+     <EXT_ATTRIBUTES>MTBF:300000;cost:1500;power source:0;rack units:1;wattage:40;</EXT_ATTRIBUTES>
+     <USB_PORT_COUNT>0</USB_PORT_COUNT>
+     <TEMPLATE_CREATION_TIME>0</TEMPLATE_CREATION_TIME>
+     <IGNORE_TEMPLATE_CREATION_TIME>0</IGNORE_TEMPLATE_CREATION_TIME>
+     <STARTTIME>730973165003</STARTTIME>
+     <STARTSIMTIME>935139</STARTSIMTIME>
+     <USER_APPS>
+      <RUNNING_APPS />
+      <DESKTOP_APPS />
+     </USER_APPS>
+     <SAVE_REF_ID>save-ref-id:16575988241024633000</SAVE_REF_ID>
+     <IGNORED_VERSION />
+     <SYS_NAME>SW1</SYS_NAME>
+     <PTP_ENALBED>0</PTP_ENALBED>
+     <RUNNINGCONFIG>
+      <LINE>!</LINE>
+      <LINE>version 12.2</LINE>
+      <LINE>no service timestamps log datetime msec</LINE>
+      <LINE>no service timestamps debug datetime msec</LINE>
+      <LINE>service password-encryption</LINE>
+      <LINE>!</LINE>
+      <LINE>hostname SW1</LINE>
+      <LINE>!</LINE>
+      <LINE>enable secret 5 $1$mERr$Omj1/0mYxBCOg2lJkvLoh0</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>ip arp inspection vlan 1</LINE>
+      <LINE>!</LINE>
+      <LINE>ip dhcp snooping vlan 1</LINE>
+      <LINE>ip dhcp snooping</LINE>
+      <LINE>!</LINE>
+      <LINE>spanning-tree mode pvst</LINE>
+      <LINE>spanning-tree portfast default</LINE>
+      <LINE>spanning-tree extend system-id</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/1</LINE>
+      <LINE> ip arp inspection trust</LINE>
+      <LINE> ip dhcp snooping trust</LINE>
+      <LINE> switchport mode access</LINE>
+      <LINE> switchport port-security</LINE>
+      <LINE> switchport port-security maximum 2</LINE>
+      <LINE> switchport port-security mac-address sticky </LINE>
+      <LINE> switchport port-security mac-address sticky 000A.F336.4401</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/2</LINE>
+      <LINE> ip arp inspection trust</LINE>
+      <LINE> switchport mode access</LINE>
+      <LINE> switchport port-security</LINE>
+      <LINE> switchport port-security maximum 2</LINE>
+      <LINE> switchport port-security mac-address sticky </LINE>
+      <LINE> switchport port-security mac-address sticky 0060.3E09.9625</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/3</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/4</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/5</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/6</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/7</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/8</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/9</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/10</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/11</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/12</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/13</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/14</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/15</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/16</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/17</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/18</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/19</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/20</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/21</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/22</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/23</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/24</LINE>
+      <LINE>!</LINE>
+      <LINE>interface GigabitEthernet0/1</LINE>
+      <LINE>!</LINE>
+      <LINE>interface GigabitEthernet0/2</LINE>
+      <LINE>!</LINE>
+      <LINE>interface Vlan1</LINE>
+      <LINE> ip address 192.168.1.2 255.255.255.0</LINE>
+      <LINE>!</LINE>
+      <LINE>banner motd # Authorized Access Only. All activities are logged. #</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>access-list 10 permit 192.168.1.0 0.0.0.255</LINE>
+      <LINE>access-list 10 permit 192.168.3.0 0.0.0.255</LINE>
+      <LINE>line con 0</LINE>
+      <LINE> logging synchronous</LINE>
+      <LINE> exec-timeout 5 0</LINE>
+      <LINE>!</LINE>
+      <LINE>line vty 0 4</LINE>
+      <LINE> access-class 10 in</LINE>
+      <LINE> exec-timeout 5 0</LINE>
+      <LINE> login</LINE>
+      <LINE> transport input ssh</LINE>
+      <LINE>line vty 5 15</LINE>
+      <LINE> login</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>end</LINE>
+     </RUNNINGCONFIG>
+     <STARTUPCONFIG>
+      <LINE>!</LINE>
+      <LINE>version 12.2</LINE>
+      <LINE>no service timestamps log datetime msec</LINE>
+      <LINE>no service timestamps debug datetime msec</LINE>
+      <LINE>service password-encryption</LINE>
+      <LINE>!</LINE>
+      <LINE>hostname SW1</LINE>
+      <LINE>!</LINE>
+      <LINE>enable secret 5 $1$mERr$Omj1/0mYxBCOg2lJkvLoh0</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>ip arp inspection vlan 1</LINE>
+      <LINE>!</LINE>
+      <LINE>ip dhcp snooping vlan 1</LINE>
+      <LINE>ip dhcp snooping</LINE>
+      <LINE>!</LINE>
+      <LINE>spanning-tree mode pvst</LINE>
+      <LINE>spanning-tree portfast default</LINE>
+      <LINE>spanning-tree extend system-id</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/1</LINE>
+      <LINE> ip arp inspection trust</LINE>
+      <LINE> ip dhcp snooping trust</LINE>
+      <LINE> switchport mode access</LINE>
+      <LINE> switchport port-security</LINE>
+      <LINE> switchport port-security maximum 2</LINE>
+      <LINE> switchport port-security mac-address sticky </LINE>
+      <LINE> switchport port-security mac-address sticky 000A.F336.4401</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/2</LINE>
+      <LINE> ip arp inspection trust</LINE>
+      <LINE> switchport mode access</LINE>
+      <LINE> switchport port-security</LINE>
+      <LINE> switchport port-security maximum 2</LINE>
+      <LINE> switchport port-security mac-address sticky </LINE>
+      <LINE> switchport port-security mac-address sticky 0060.3E09.9625</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/3</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/4</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/5</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/6</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/7</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/8</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/9</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/10</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/11</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/12</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/13</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/14</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/15</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/16</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/17</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/18</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/19</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/20</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/21</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/22</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/23</LINE>
+      <LINE>!</LINE>
+      <LINE>interface FastEthernet0/24</LINE>
+      <LINE>!</LINE>
+      <LINE>interface GigabitEthernet0/1</LINE>
+      <LINE>!</LINE>
+      <LINE>interface GigabitEthernet0/2</LINE>
+      <LINE>!</LINE>
+      <LINE>interface Vlan1</LINE>
+      <LINE> ip address 192.168.1.2 255.255.255.0</LINE>
+      <LINE>!</LINE>
+      <LINE>banner motd # Authorized Access Only. All activities are logged. #</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>access-list 10 permit 192.168.1.0 0.0.0.255</LINE>
+      <LINE>access-list 10 permit 192.168.3.0 0.0.0.255</LINE>
+      <LINE>line con 0</LINE>
+      <LINE> logging synchronous</LINE>
+      <LINE> exec-timeout 5 0</LINE>
+      <LINE>!</LINE>
+      <LINE>line vty 0 4</LINE>
+      <LINE> access-class 10 in</LINE>
+      <LINE> exec-timeout 5 0</LINE>
+      <LINE> login</LINE>
+      <LINE> transport input ssh</LINE>
+      <LINE>line vty 5 15</LINE>
+      <LINE> login</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>!</LINE>
+      <LINE>end</LINE>
+     </STARTUPCONFIG>
+     <CURRENT_COMMAND_SET>2960_12.2_FX</CURRENT_COMMAND_SET>
+     <FILE_MANAGER>
+      <FILE class="CDirectory">
+       <FILE_NUMBER>0</FILE_NUMBER>
+       <NAME />
+       <DATE_TIME>0</DATE_TIME>
+       <PERMISSION>6</PERMISSION>
+       <FILE_CONTENT />
+       <FILES>
+        <FILE class="CFileSystem">
+         <FILE_NUMBER>0</FILE_NUMBER>
+         <NAME>flash:</NAME>
+         <DATE_TIME>0</DATE_TIME>
+         <PERMISSION>6</PERMISSION>
+         <FILE_CONTENT />
+         <FILES>
+          <FILE class="CFile">
+           <FILE_NUMBER>1</FILE_NUMBER>
+           <NAME>c2960-lanbase-mz.122-25.FX.bin</NAME>
+           <DATE_TIME>0</DATE_TIME>
+           <PERMISSION>6</PERMISSION>
+           <FILE_CONTENT class="CIosFileContent">
+            <DEVICE_TYPE>Switch</DEVICE_TYPE>
+            <SET_NAME>2960_12.2_FX</SET_NAME>
+           </FILE_CONTENT>
+          </FILE>
+          <FILE class="CFile">
+           <FILE_NUMBER>2</FILE_NUMBER>
+           <NAME>config.text</NAME>
+           <DATE_TIME>0</DATE_TIME>
+           <PERMISSION>6</PERMISSION>
+           <FILE_CONTENT class="CConfigFileContent">
+            <CONFIG>
+             <LINE>!</LINE>
+             <LINE>version 12.2</LINE>
+             <LINE>no service timestamps log datetime msec</LINE>
+             <LINE>no service timestamps debug datetime msec</LINE>
+             <LINE>service password-encryption</LINE>
+             <LINE>!</LINE>
+             <LINE>hostname SW1</LINE>
+             <LINE>!</LINE>
+             <LINE>enable secret 5 $1$mERr$Omj1/0mYxBCOg2lJkvLoh0</LINE>
+             <LINE>!</LINE>
+             <LINE>!</LINE>
+             <LINE>!</LINE>
+             <LINE>!</LINE>
+             <LINE>ip arp inspection vlan 1</LINE>
+             <LINE>!</LINE>
+             <LINE>ip dhcp snooping vlan 1</LINE>
+             <LINE>ip dhcp snooping</LINE>
+             <LINE>!</LINE>
+             <LINE>spanning-tree mode pvst</LINE>
+             <LINE>spanning-tree portfast default</LINE>
+             <LINE>spanning-tree extend system-id</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/1</LINE>
+             <LINE> ip arp inspection trust</LINE>
+             <LINE> ip dhcp snooping trust</LINE>
+             <LINE> switchport mode access</LINE>
+             <LINE> switchport port-security</LINE>
+             <LINE> switchport port-security maximum 2</LINE>
+             <LINE> switchport port-security mac-address sticky </LINE>
+             <LINE> switchport port-security mac-address sticky 000A.F336.4401</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/2</LINE>
+             <LINE> ip arp inspection trust</LINE>
+             <LINE> switchport mode access</LINE>
+             <LINE> switchport port-security</LINE>
+             <LINE> switchport port-security maximum 2</LINE>
+             <LINE> switchport port-security mac-address sticky </LINE>
+             <LINE> switchport port-security mac-address sticky 0060.3E09.9625</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/3</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/4</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/5</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/6</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/7</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/8</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/9</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/10</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/11</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/12</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/13</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/14</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/15</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/16</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/17</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/18</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/19</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/20</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/21</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/22</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/23</LINE>
+             <LINE>!</LINE>
+             <LINE>interface FastEthernet0/24</LINE>
+             <LINE>!</LINE>
+             <LINE>interface GigabitEthernet0/1</LINE>
+             <LINE>!</LINE>
+             <LINE>interface GigabitEthernet0/2</LINE>
+             <LINE>!</LINE>
+             <LINE>interface Vlan1</LINE>
+             <LINE> ip address 192.168.1.2 255.255.255.0</LINE>
+             <LINE>!</LINE>
+             <LINE>banner motd # Authorized Access Only. All activities are logged. #</LINE>
+             <LINE>!</LINE>
+             <LINE>!</LINE>
+             <LINE>!</LINE>
+             <LINE>access-list 10 permit 192.168.1.0 0.0.0.255</LINE>
+             <LINE>access-list 10 permit 192.168.3.0 0.0.0.255</LINE>
+             <LINE>line con 0</LINE>
+             <LINE> logging synchronous</LINE>
+             <LINE> exec-timeout 5 0</LINE>
+             <LINE>!</LINE>
+             <LINE>line vty 0 4</LINE>
+             <LINE> access-class 10 in</LINE>
+             <LINE> exec-timeout 5 0</LINE>
+             <LINE> login</LINE>
+             <LINE> transport input ssh</LINE>
+             <LINE>line vty 5 15</LINE>
+             <LINE> login</LINE>
+             <LINE>!</LINE>
+             <LINE>!</LINE>
+             <LINE>!</LINE>
+             <LINE>!</LINE>
+             <LINE>end</LINE>
+            </CONFIG>
+           </FILE_CONTENT>
+          </FILE>
+         </FILES>
+         <FILE_COUNTER>2</FILE_COUNTER>
+         <CAPACITY>64016384</CAPACITY>
+        </FILE>
+       </FILES>
+      </FILE>
+     </FILE_MANAGER>
+     <CONFIG_REGISTER>15</CONFIG_REGISTER>
+     <NEXT_CONFIG_REGISTER>15</NEXT_CONFIG_REGISTER>
+     <CURRENT_BOOT_FILE>flash:/c2960-lanbase-mz.122-25.FX.bin</CURRENT_BOOT_FILE>
+     <CONFIG_BOOT_FILES />
+     <BUILD_IN_ADDR>0040.0B82.6975</BUILD_IN_ADDR>
+     <BIOS_VERSION />
+     <SECURITY>
+      <KEY_NAME />
+      <TEMP_KEY_NAME />
+      <RSA_KEY />
+      <TEMP_RSA_KEY />
+      <TIME_DATE />
+      <ENABLED>0</ENABLED>
+      <MODULUS_BITS>0</MODULUS_BITS>
+     </SECURITY>
+     <ALGORITHM_SETTINGS>
+      <USE_GLOBAL>true</USE_GLOBAL>
+      <CBAC_HALF_OPEN_SESSION_MULTIPLIER>1</CBAC_HALF_OPEN_SESSION_MULTIPLIER>
+      <TCP_MAX_CONNECTING_SESSIONS>100</TCP_MAX_CONNECTING_SESSIONS>
+      <TCP_MAX_OPENED_SESSIONS>1000</TCP_MAX_OPENED_SESSIONS>
+      <INTERFACE_QUEUE_SIZE>10</INTERFACE_QUEUE_SIZE>
+      <STORM_CONTROL_MULTIPLIER>10</STORM_CONTROL_MULTIPLIER>
+      <TCP_MAX_RETRANSMISSION_TIMEOUT>1000</TCP_MAX_RETRANSMISSION_TIMEOUT>
+     </ALGORITHM_SETTINGS>
+     <SCP_SERVER_ENABLED>false</SCP_SERVER_ENABLED>
+     <SENSOR_ENABLED>false</SENSOR_ENABLED>
+     <SMART_LICENSE_CLIENT>
+      <IDTOKEN />
+      <IDTOKEN_LOCAL>true</IDTOKEN_LOCAL>
+      <LICENSE />
+      <TRUST_CODE_TIMESTAMP />
+      <REPORT_TIMESTAMP />
+      <LAST_REPORT_TIMESTAMP />
+      <CREATE_TIME>1788114463558</CREATE_TIME>
+     </SMART_LICENSE_CLIENT>
+     <VLANS>
+      <VLAN name="default" number="1" rspan="0" />
+      <VLAN name="fddi-default" number="1002" rspan="0" />
+      <VLAN name="token-ring-default" number="1003" rspan="0" />
+      <VLAN name="fddinet-default" number="1004" rspan="0" />
+      <VLAN name="trnet-default" number="1005" rspan="0" />
+     </VLANS>
+     <VTP>
+      <DOMAIN_NAME />
+      <MODE>0</MODE>
+      <VERSION>1</VERSION>
+      <PASSWORD />
+      <CONFIG_REVISION>0</CONFIG_REVISION>
+      <UPDATER_IP>0.0.0.0</UPDATER_IP>
+      <UPDATE_TIMESTAMP>0-0-00 00:00:00</UPDATE_TIMESTAMP>
+     </VTP>
+     <DHCP_SNOOPING_BINDING_DB_AGENT>
+      <CONFIGURED_FILENAME />
+      <TMP_FILENAME />
+     </DHCP_SNOOPING_BINDING_DB_AGENT>
+     <SDM>
+      <ACTIVE_TEMPLATE>0</ACTIVE_TEMPLATE>
+      <NEXT_TEMPLATE>0</NEXT_TEMPLATE>
+     </SDM>
+    </ENGINE>
+    <WORKSPACE>
+     <LOGICAL>
+      <X>99</X>
+      <Y>250</Y>
+      <DEVCLUSTERID>1-1</DEVCLUSTERID>
+      <CUSTOM_IMAGE_LOGICAL />
+      <CUSTOM_IMAGE_PHYSICAL />
+      <MEM_ADDR>107890662637280</MEM_ADDR>
+      <DEV_ADDR>107890661959488</DEV_ADDR>
+     </LOGICAL>
+     <PHYSICAL>{df5ca65a-b163-4011-8e12-5ac1ca7d19e9},{98838461-0018-4009-a35d-d4f99b348397},{212189e8-44a7-4899-a2ba-d5f954aacf80},{621f9e1f-62b6-412e-94ea-640af0f52ba1},{bbe2ea44-b16f-4cb9-be99-f6f8e29610f8},{86282722-7eb1-47f6-851e-9d536326c370}</PHYSICAL>
+     <PHYSICAL_CPUR>
+      <X_PN>0.03225</X_PN>
+      <Y_PN>0.073</Y_PN>
+      <X>20</X>
+      <Y>0</Y>
+      <SLOT>0</SLOT>
+      <SUBSLOT>0</SUBSLOT>
+      <PARENT_PATH>{df5ca65a-b163-4011-8e12-5ac1ca7d19e9},{98838461-0018-4009-a35d-d4f99b348397},{212189e8-44a7-4899-a2ba-d5f954aacf80},{621f9e1f-62b6-412e-94ea-640af0f52ba1}</PARENT_PATH>
+      <CONTAINER_ID>{bbe2ea44-b16f-4cb9-be99-f6f8e29610f8}</CONTAINER_ID>
+      <ICP_CONTAINER_SCENE_X>0</ICP_CONTAINER_SCENE_X>
+      <ICP_CONTAINER_SCENE_Y>0</ICP_CONTAINER_SCENE_Y>
+      <ORIGINAL_DEVICE_UUID>{b61c33da-0546-1c01-5c65-eadab976681a}</ORIGINAL_DEVICE_UUID>
+     </PHYSICAL_CPUR>
+    </WORKSPACE>
+   </DEVICE>
+   

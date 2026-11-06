@@ -1,0 +1,116 @@
+! =====================================================================
+! Configuración completa de Router R1 (Cisco 2911)
+! Escenario: Direccionamiento Dinámico IPv6 en Propiedad Horizontal
+! =====================================================================
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+ip cef
+ipv6 unicast-routing
+!
+no ip domain-lookup
+ip domain-name propiedadhorizontal.local
+ip name-server 2001:DB8:ACAD:99::10
+!
+! --- Pools DHCPv6 Stateless (Departamentos 2 y 4: O=1, M=0) ---
+ipv6 dhcp pool DEPT2_STATELESS
+ dns-server 2001:DB8:ACAD:99::10
+ domain-name propiedadhorizontal.local
+!
+ipv6 dhcp pool DEPT4_STATELESS
+ dns-server 2001:DB8:ACAD:99::10
+ domain-name propiedadhorizontal.local
+!
+! --- Pool DHCPv6 Stateful (Departamento 3: M=1) ---
+ipv6 dhcp pool DEPT3_STATEFUL
+ address prefix 2001:DB8:ACAD:30::/64 lifetime 172800 86400
+ dns-server 2001:DB8:ACAD:99::10
+ domain-name propiedadhorizontal.local
+!
+! --- Interfaz Física Troncal hacia SW1 (Router-on-a-Stick) ---
+interface GigabitEthernet0/0
+ description Troncal_802.1Q_hacia_SW1
+ no ip address
+ duplex auto
+ speed auto
+ no shutdown
+!
+! --- Subinterfaz Departamento 1 (VLAN 10 - SLAAC: M=0, O=0) ---
+interface GigabitEthernet0/0.10
+ description Gateway_Departamento_1_SLAAC
+ encapsulation dot1Q 10
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:10::1/64
+ ipv6 enable
+!
+! --- Subinterfaz Departamento 2 (VLAN 20 - DHCPv6 Stateless: O=1, M=0) ---
+interface GigabitEthernet0/0.20
+ description Gateway_Departamento_2_DHCPv6_Stateless
+ encapsulation dot1Q 20
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:20::1/64
+ ipv6 enable
+ ipv6 nd other-config-flag
+ ipv6 dhcp server DEPT2_STATELESS
+!
+! --- Subinterfaz Departamento 3 (VLAN 30 - DHCPv6 Stateful: M=1) ---
+interface GigabitEthernet0/0.30
+ description Gateway_Departamento_3_DHCPv6_Stateful
+ encapsulation dot1Q 30
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:30::1/64
+ ipv6 enable
+ ipv6 nd managed-config-flag
+ ipv6 dhcp server DEPT3_STATEFUL
+!
+! --- Subinterfaz Departamento 4 (VLAN 40 - DHCPv6 Stateless: O=1, M=0) ---
+interface GigabitEthernet0/0.40
+ description Gateway_Departamento_4_DHCPv6_Stateless
+ encapsulation dot1Q 40
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:40::1/64
+ ipv6 enable
+ ipv6 nd other-config-flag
+ ipv6 dhcp server DEPT4_STATELESS
+!
+! --- Subinterfaz Departamento 5 (VLAN 50 - SLAAC: M=0, O=0) ---
+interface GigabitEthernet0/0.50
+ description Gateway_Departamento_5_SLAAC
+ encapsulation dot1Q 50
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:50::1/64
+ ipv6 enable
+!
+! --- Interfaz de Servicios Internos hacia SRV-DNS ---
+interface GigabitEthernet0/1
+ description Enlace_Servidor_DNS_Interno
+ no ip address
+ duplex auto
+ speed auto
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:99::1/64
+ ipv6 enable
+ no shutdown
+!
+! --- Interfaz WAN hacia Cloud-PT (ISP) ---
+interface GigabitEthernet0/2
+ description Enlace_WAN_ISP_Cloud
+ no ip address
+ duplex auto
+ speed auto
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:FF::1/64
+ ipv6 enable
+ no shutdown
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login
+!
+end

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hito 10: Diagnóstico de Fallos (Troubleshooting) y Preguntas de Reflexión</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #1e293b; line-height: 1.5; margin: 12px; }
+  h2 { color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
+  h3 { color: #1d4ed8; margin-top: 14px; margin-bottom: 6px; }
+  pre, code { background-color: #f1f5f9; font-family: Consolas, monospace; padding: 2px 5px; border-radius: 3px; }
+  pre { padding: 8px; border-left: 3px solid #2563eb; overflow-x: auto; }
+  .fault-box { background-color: #fff7ed; border-left: 4px solid #ea580c; padding: 8px 10px; margin: 8px 0; }
+  .question-box { background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 8px 12px; margin: 8px 0; border-radius: 4px; }
+</style>
+</head>
+<body>
+<h2>Hito 10 (10/10): Diagnóstico y Resolución de Fallos (Troubleshooting) y Reflexión Final</h2>
+
+<h3>1. Objetivo del Hito</h3>
+<p>Diagnosticar y corregir 3 fallos típicos en despliegues de direccionamiento dinámico IPv6 sobre redes segmentadas por VLAN (disponibles también en el archivo dedicado <code>Grupo_IPV6_Diagnostico_Hito10.pka</code>), verificar el 100% de calificación en <b>Check Results</b> y responder las 5 preguntas de análisis técnico.</p>
+
+<h3>2. Contexto Técnico: Los 3 Fallos de Diagnóstico</h3>
+<div class="fault-box">
+  <b>Fallo 1 (Capa 2 - Troncal 802.1Q):</b> La VLAN 40 (Departamento 4) fue omitida de la lista de VLANs permitidas en el enlace troncal <code>SW1 Gi0/1</code> (<code>switchport trunk allowed vlan 10,20,30,50</code>), impidiendo que los anuncios RA y paquetes DHCPv6 Stateless lleguen a <code>PC-D4</code>.<br>
+  <b>Fallo 2 (Capa 3 - Flag RA en VLAN 20):</b> En la subinterfaz <code>R1 Gi0/0.20</code> (Departamento 2) falta el comando <code>ipv6 nd other-config-flag</code>, provocando que <code>PC-D2</code> obtenga dirección por SLAAC pero nunca consulte al pool <code>DEPT2_STATELESS</code> por el servidor DNS.<br>
+  <b>Fallo 3 (Capa 3 - Asociación DHCPv6 en VLAN 30):</b> En la subinterfaz <code>R1 Gi0/0.30</code> (Departamento 3) se activó <code>ipv6 nd managed-config-flag</code> pero se omitió <code>ipv6 dhcp server DEPT3_STATEFUL</code>, por lo que <code>PC-D3</code> envía mensajes <i>Solicit</i> sin recibir respuesta.
+</div>
+
+<h3>3. Dispositivos Involucrados</h3>
+<p>Router <code>R1</code>, Switch <code>SW1</code>, <code>PC-D2</code>, <code>PC-D3</code> y <code>PC-D4</code>.</p>
+
+<h3>4. Comandos de Diagnóstico y Corrección</h3>
+<pre>
+! Diagnóstico:
+SW1# show interfaces trunk
+R1# show running-config interface GigabitEthernet0/0.20
+R1# show running-config interface GigabitEthernet0/0.30
+
+! Corrección de los 3 fallos:
+SW1(config)# interface GigabitEthernet0/1
+SW1(config-if)# switchport trunk allowed vlan 10,20,30,40,50
+
+R1(config)# interface GigabitEthernet0/0.20
+R1(config-subif)# ipv6 nd other-config-flag
+
+R1(config)# interface GigabitEthernet0/0.30
+R1(config-subif)# ipv6 dhcp server DEPT3_STATEFUL
+</pre>
+
+<h3>5. Procedimiento Paso a Paso</h3>
+<ol>
+  <li>Verifique en <code>SW1</code> que el enlace troncal <code>Gi0/1</code> permita las cinco VLANs (<code>10,20,30,40,50</code>).</li>
+  <li>Verifique en <code>R1</code> que <code>Gi0/0.20</code> y <code>Gi0/0.40</code> tengan <code>ipv6 nd other-config-flag</code> y su respectivo <code>ipv6 dhcp server</code>.</li>
+  <li>Verifique en <code>R1</code> que <code>Gi0/0.30</code> tenga <code>ipv6 nd managed-config-flag</code> y <code>ipv6 dhcp server DEPT3_STATEFUL</code>.</li>
+  <li>Haga clic en el botón <b>Check Results</b> de la ventana de actividad y confirme que el porcentaje de completitud sea del <b>100%</b>.</li>
+</ol>
+
+<h3>6. Resultado Esperado</h3>
+<p>Todos los departamentos operan conforme al diseño técnico y el árbol de evaluación (<i>Assessment Items</i>) muestra el 100% de los criterios cumplidos.</p>
+
+<h3>7. Evidencia Solicitada y 5 Preguntas de Reflexión Obligatorias</h3>
+<div class="question-box">
+  <ol>
+    <li><b>¿Qué diferencia funcional observaste entre SLAAC, DHCPv6 Stateless y DHCPv6 Stateful?</b><br>
+    <i>Analice cómo interviene el router en la generación del identificador de interfaz y en la entrega de opciones DNS/dominio en cada caso.</i></li>
+    <li><b>¿Qué ocurre si <code>ipv6 unicast-routing</code> no está habilitado en el router <code>R1</code>?</b><br>
+    <i>Explique su impacto tanto en el enrutamiento entre subinterfaces como en el envío de mensajes ICMPv6 Router Advertisement (RA).</i></li>
+    <li><b>¿Cómo influyen los flags M (<i>Managed</i>) y O (<i>Other</i>) en el comportamiento del host IPv6?</b><br>
+    <i>Describa qué combinación de bits (M, O) activa SLAAC puro, DHCPv6 Stateless y DHCPv6 Stateful.</i></li>
+    <li><b>¿Qué ventajas ofrece segmentar cada departamento en una VLAN diferente dentro de una propiedad horizontal?</b><br>
+    <i>Relaciónelo con el alcance multicast de los anuncios RA (<code>FF02::1</code>), la seguridad entre vecinos y la asignación de prefijos <code>/64</code>.</i></li>
+    <li><b>¿En qué escenario real de un edificio residencial o corporativo elegirías DHCPv6 Stateful sobre SLAAC?</b><br>
+    <i>Justifique su respuesta considerando auditoría de direcciones, control de inventario y políticas de seguridad.</i></li>
+  </ol>
+</div>
+
+<h3>8. Criterio de Evaluación Final</h3>
+<p>Calificación automática del 100% en <b>Check Results</b> (R1, SW1, PC-D1..D5 y SRV-DNS) y entrega documentada de las 5 preguntas de reflexión.</p>
+</body>
+</html>

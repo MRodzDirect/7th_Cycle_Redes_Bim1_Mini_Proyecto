@@ -1,0 +1,815 @@
+{
+ "schema": "pkt-ios-audit/1",
+ "generated": "2026-11-05T22:18:30Z",
+ "artifacts": [
+  {
+   "path": "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt",
+   "sha256": "f32984dca0d7636a466d3615d5ee3b8ec076be66d671e42038447595be3ffefe",
+   "devices": 2,
+   "runningconfig_blocks": 2,
+   "config_lines": 216,
+   "banner_body_lines": 0,
+   "ignored_lines": 42,
+   "distinct_signatures": 45
+  },
+  {
+   "path": "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+   "sha256": "8593d675e3daebbb1b8135a6f6b8d21ec249f055c1a845193308d0928d5e2808",
+   "devices": 6,
+   "runningconfig_blocks": 6,
+   "config_lines": 236,
+   "banner_body_lines": 0,
+   "ignored_lines": 54,
+   "distinct_signatures": 45
+  }
+ ],
+ "corpus": {
+  "dir": "GENERADOR\\packet-tracer-pkt-format\\corpus\\samples",
+  "cache": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\GENERADOR\\packet-tracer-pkt-format\\build\\ios_attestation.json",
+  "cache_hit": true,
+  "fingerprint": "40dd8393d5c4a2ee8116ba7b9baa0b79f5b3801e2f515768edef2fb8ad96effe",
+  "generated": "2026-11-05T22:15:03Z",
+  "files_ok": 2,
+  "files_failed": 0,
+  "attested_signatures": 61,
+  "attested_bodies": 61,
+  "decode_failures": {}
+ },
+ "summary": {
+  "distinct_signatures": 45,
+  "attested_signatures": 17,
+  "unattested_signatures": 28,
+  "unattested_standard": 25,
+  "unattested_suspicious": 3,
+  "attested_emissions": 130,
+  "unattested_emissions": 226,
+  "suspicious_emissions": 14
+ },
+ "signatures": [
+  {
+   "signature": "interface|description <text>",
+   "mode": "interface",
+   "body": "description <text>",
+   "emitted": 38,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:description",
+   "example": "description Troncal_802.1Q_hacia_SW1"
+  },
+  {
+   "signature": "interface|no shutdown",
+   "mode": "interface",
+   "body": "no shutdown",
+   "emitted": 28,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:shutdown",
+   "example": "no shutdown"
+  },
+  {
+   "signature": "interface|spanning-tree portfast",
+   "mode": "interface",
+   "body": "spanning-tree portfast",
+   "emitted": 20,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:spanning-tree",
+   "example": "spanning-tree portfast"
+  },
+  {
+   "signature": "interface|switchport access vlan <n>",
+   "mode": "interface",
+   "body": "switchport access vlan <n>",
+   "emitted": 20,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:switchport",
+   "example": "switchport access vlan 10"
+  },
+  {
+   "signature": "interface|ipv6 address <ip6>",
+   "mode": "interface",
+   "body": "ipv6 address <ip6>",
+   "emitted": 14,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 address 2001:DB8:ACAD:10::1/64"
+  },
+  {
+   "signature": "interface|ipv6 address <ip6> link-local",
+   "mode": "interface",
+   "body": "ipv6 address <ip6> link-local",
+   "emitted": 14,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 address FE80::1 link-local"
+  },
+  {
+   "signature": "interface|ipv6 enable",
+   "mode": "interface",
+   "body": "ipv6 enable",
+   "emitted": 14,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 enable"
+  },
+  {
+   "signature": "interface|encapsulation dot1q <n>",
+   "mode": "interface",
+   "body": "encapsulation dot1q <n>",
+   "emitted": 10,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:encapsulation",
+   "example": "encapsulation dot1Q 10"
+  },
+  {
+   "signature": "vlan|name <text>",
+   "mode": "vlan",
+   "body": "name <text>",
+   "emitted": 10,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:name",
+   "example": "name DEPTO_1_SLAAC"
+  },
+  {
+   "signature": "vlan|vlan <n>",
+   "mode": "vlan",
+   "body": "vlan <n>",
+   "emitted": 10,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:vlan",
+   "example": "vlan 10"
+  },
+  {
+   "signature": "global|dns-server <ip6>",
+   "mode": "global",
+   "body": "dns-server <ip6>",
+   "emitted": 6,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "suspicious",
+   "reason": "unrecognised-command-verb:dns-server",
+   "example": "dns-server 2001:DB8:ACAD:99::10"
+  },
+  {
+   "signature": "global|domain-name propiedadhorizontal.local",
+   "mode": "global",
+   "body": "domain-name propiedadhorizontal.local",
+   "emitted": 6,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "suspicious",
+   "reason": "unrecognised-command-verb:domain-name",
+   "example": "domain-name propiedadhorizontal.local"
+  },
+  {
+   "signature": "global|no service password-encryption",
+   "mode": "global",
+   "body": "no service password-encryption",
+   "emitted": 4,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:service",
+   "example": "no service password-encryption"
+  },
+  {
+   "signature": "interface|ipv6 nd other-config-flag",
+   "mode": "interface",
+   "body": "ipv6 nd other-config-flag",
+   "emitted": 4,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 nd other-config-flag"
+  },
+  {
+   "signature": "global|address prefix <ip6> lifetime <n> <n>",
+   "mode": "global",
+   "body": "address prefix <ip6> lifetime <n> <n>",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "suspicious",
+   "reason": "unrecognised-command-verb:address",
+   "example": "address prefix 2001:DB8:ACAD:30::/64 lifetime 172800 86400"
+  },
+  {
+   "signature": "global|ip cef",
+   "mode": "global",
+   "body": "ip cef",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ip",
+   "example": "ip cef"
+  },
+  {
+   "signature": "global|ip name-server <ip6>",
+   "mode": "global",
+   "body": "ip name-server <ip6>",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ip",
+   "example": "ip name-server 2001:DB8:ACAD:99::10"
+  },
+  {
+   "signature": "global|ipv6 dhcp pool dept2_stateless",
+   "mode": "global",
+   "body": "ipv6 dhcp pool dept2_stateless",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 dhcp pool DEPT2_STATELESS"
+  },
+  {
+   "signature": "global|ipv6 dhcp pool dept3_stateful",
+   "mode": "global",
+   "body": "ipv6 dhcp pool dept3_stateful",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 dhcp pool DEPT3_STATEFUL"
+  },
+  {
+   "signature": "global|ipv6 dhcp pool dept4_stateless",
+   "mode": "global",
+   "body": "ipv6 dhcp pool dept4_stateless",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 dhcp pool DEPT4_STATELESS"
+  },
+  {
+   "signature": "global|ipv6 unicast-routing",
+   "mode": "global",
+   "body": "ipv6 unicast-routing",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 unicast-routing"
+  },
+  {
+   "signature": "global|no ip domain-lookup",
+   "mode": "global",
+   "body": "no ip domain-lookup",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ip",
+   "example": "no ip domain-lookup"
+  },
+  {
+   "signature": "interface|ipv6 dhcp server dept2_stateless",
+   "mode": "interface",
+   "body": "ipv6 dhcp server dept2_stateless",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 dhcp server DEPT2_STATELESS"
+  },
+  {
+   "signature": "interface|ipv6 dhcp server dept3_stateful",
+   "mode": "interface",
+   "body": "ipv6 dhcp server dept3_stateful",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 dhcp server DEPT3_STATEFUL"
+  },
+  {
+   "signature": "interface|ipv6 dhcp server dept4_stateless",
+   "mode": "interface",
+   "body": "ipv6 dhcp server dept4_stateless",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 dhcp server DEPT4_STATELESS"
+  },
+  {
+   "signature": "interface|ipv6 nd managed-config-flag",
+   "mode": "interface",
+   "body": "ipv6 nd managed-config-flag",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:ipv6",
+   "example": "ipv6 nd managed-config-flag"
+  },
+  {
+   "signature": "interface|switchport mode trunk",
+   "mode": "interface",
+   "body": "switchport mode trunk",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:switchport",
+   "example": "switchport mode trunk"
+  },
+  {
+   "signature": "interface|switchport trunk allowed vlan <text>",
+   "mode": "interface",
+   "body": "switchport trunk allowed vlan <text>",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 0,
+   "corpus_files_body_only": 0,
+   "verdict": "UNATTESTED",
+   "category": "standard",
+   "reason": "standard-verb:switchport",
+   "example": "switchport trunk allowed vlan 10,20,30,40,50"
+  },
+  {
+   "signature": "interface|interface <if>",
+   "mode": "interface",
+   "body": "interface <if>",
+   "emitted": 40,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "interface GigabitEthernet0/0"
+  },
+  {
+   "signature": "interface|switchport mode access",
+   "mode": "interface",
+   "body": "switchport mode access",
+   "emitted": 20,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "switchport mode access"
+  },
+  {
+   "signature": "global|hostname <text>",
+   "mode": "global",
+   "body": "hostname <text>",
+   "emitted": 8,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "hostname R1"
+  },
+  {
+   "signature": "interface|no ip address",
+   "mode": "interface",
+   "body": "no ip address",
+   "emitted": 8,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "no ip address"
+  },
+  {
+   "signature": "interface|duplex auto",
+   "mode": "interface",
+   "body": "duplex auto",
+   "emitted": 6,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "duplex auto"
+  },
+  {
+   "signature": "interface|speed auto",
+   "mode": "interface",
+   "body": "speed auto",
+   "emitted": 6,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "speed auto"
+  },
+  {
+   "signature": "line|line vty <n> <n>",
+   "mode": "line",
+   "body": "line vty <n> <n>",
+   "emitted": 6,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "line vty 0 4"
+  },
+  {
+   "signature": "line|login",
+   "mode": "line",
+   "body": "login",
+   "emitted": 6,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "login"
+  },
+  {
+   "signature": "global|no service timestamps debug datetime msec",
+   "mode": "global",
+   "body": "no service timestamps debug datetime msec",
+   "emitted": 4,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "no service timestamps debug datetime msec"
+  },
+  {
+   "signature": "global|no service timestamps log datetime msec",
+   "mode": "global",
+   "body": "no service timestamps log datetime msec",
+   "emitted": 4,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "no service timestamps log datetime msec"
+  },
+  {
+   "signature": "global|version 12.2",
+   "mode": "global",
+   "body": "version 12.2",
+   "emitted": 4,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "version 12.2"
+  },
+  {
+   "signature": "global|version 15.1",
+   "mode": "global",
+   "body": "version 15.1",
+   "emitted": 4,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "version 15.1"
+  },
+  {
+   "signature": "line|line con <n> <n>",
+   "mode": "line",
+   "body": "line con <n> <n>",
+   "emitted": 4,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "line con 0"
+  },
+  {
+   "signature": "line|logging synchronous",
+   "mode": "line",
+   "body": "logging synchronous",
+   "emitted": 4,
+   "devices": 4,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "logging synchronous"
+  },
+  {
+   "signature": "global|ip domain-name <text>",
+   "mode": "global",
+   "body": "ip domain-name <text>",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "ip domain-name propiedadhorizontal.local"
+  },
+  {
+   "signature": "interface|shutdown",
+   "mode": "interface",
+   "body": "shutdown",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "shutdown"
+  },
+  {
+   "signature": "line|line aux <n> <n>",
+   "mode": "line",
+   "body": "line aux <n> <n>",
+   "emitted": 2,
+   "devices": 2,
+   "artifacts": [
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
+    "IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt"
+   ],
+   "corpus_files": 1,
+   "corpus_files_body_only": 1,
+   "verdict": "ATTESTED",
+   "category": null,
+   "reason": "attested-by-1-files",
+   "example": "line aux 0"
+  }
+ ]
+}

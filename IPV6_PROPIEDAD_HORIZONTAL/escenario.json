@@ -1,0 +1,491 @@
+{
+  "metadata": {
+    "titulo": "Implementación de Direccionamiento Dinámico en una Red IPv6 (Propiedad Horizontal)",
+    "asignatura": "Redes y Sistemas Distribuidos",
+    "version_pt": "9.0.1.0858",
+    "autor": "Grupo IPv6 - Propiedad Horizontal",
+    "password_actividad": "IPV6_MAESTRO_2026",
+    "dominio": "propiedadhorizontal.local",
+    "dns_ipv6": "2001:DB8:ACAD:99::10",
+    "feedback_incompleto": "Aún faltan elementos de configuración IPv6, VLANs, enlaces troncales o servicios DNS por completar. Revisa los 10 hitos en la ventana de instrucciones y verifica con Check Results.",
+    "feedback_completo": "¡Excelente trabajo! Has completado al 100% la implementación de direccionamiento dinámico IPv6 (SLAAC, DHCPv6 Stateless y DHCPv6 Stateful) en el edificio de propiedad horizontal."
+  },
+  "departamentos": [
+    {
+      "numero": 1,
+      "nombre": "Departamento 1",
+      "vlan_id": 10,
+      "vlan_name": "DEPTO_1_SLAAC",
+      "subinterfaz": "GigabitEthernet0/0.10",
+      "prefijo": "2001:DB8:ACAD:10::/64",
+      "gateway": "2001:DB8:ACAD:10::1",
+      "gateway_cidr": "2001:DB8:ACAD:10::1/64",
+      "link_local": "FE80::1",
+      "metodo": "SLAAC",
+      "ra_managed_flag": false,
+      "ra_other_flag": false,
+      "dhcpv6_pool": null,
+      "pc_device": "PC-D1",
+      "sw_port_pc": "FastEthernet0/1",
+      "ap_device": "AP-D1",
+      "sw_port_ap": "FastEthernet0/6",
+      "ssid": "Depto1_IPv6"
+    },
+    {
+      "numero": 2,
+      "nombre": "Departamento 2",
+      "vlan_id": 20,
+      "vlan_name": "DEPTO_2_STATELESS",
+      "subinterfaz": "GigabitEthernet0/0.20",
+      "prefijo": "2001:DB8:ACAD:20::/64",
+      "gateway": "2001:DB8:ACAD:20::1",
+      "gateway_cidr": "2001:DB8:ACAD:20::1/64",
+      "link_local": "FE80::1",
+      "metodo": "DHCPv6 Stateless",
+      "ra_managed_flag": false,
+      "ra_other_flag": true,
+      "dhcpv6_pool": "DEPT2_STATELESS",
+      "pc_device": "PC-D2",
+      "sw_port_pc": "FastEthernet0/2",
+      "ap_device": "AP-D2",
+      "sw_port_ap": "FastEthernet0/7",
+      "ssid": "Depto2_IPv6"
+    },
+    {
+      "numero": 3,
+      "nombre": "Departamento 3",
+      "vlan_id": 30,
+      "vlan_name": "DEPTO_3_STATEFUL",
+      "subinterfaz": "GigabitEthernet0/0.30",
+      "prefijo": "2001:DB8:ACAD:30::/64",
+      "gateway": "2001:DB8:ACAD:30::1",
+      "gateway_cidr": "2001:DB8:ACAD:30::1/64",
+      "link_local": "FE80::1",
+      "metodo": "DHCPv6 Stateful",
+      "ra_managed_flag": true,
+      "ra_other_flag": false,
+      "dhcpv6_pool": "DEPT3_STATEFUL",
+      "pc_device": "PC-D3",
+      "sw_port_pc": "FastEthernet0/3",
+      "ap_device": "AP-D3",
+      "sw_port_ap": "FastEthernet0/8",
+      "ssid": "Depto3_IPv6"
+    },
+    {
+      "numero": 4,
+      "nombre": "Departamento 4",
+      "vlan_id": 40,
+      "vlan_name": "DEPTO_4_STATELESS",
+      "subinterfaz": "GigabitEthernet0/0.40",
+      "prefijo": "2001:DB8:ACAD:40::/64",
+      "gateway": "2001:DB8:ACAD:40::1",
+      "gateway_cidr": "2001:DB8:ACAD:40::1/64",
+      "link_local": "FE80::1",
+      "metodo": "DHCPv6 Stateless",
+      "ra_managed_flag": false,
+      "ra_other_flag": true,
+      "dhcpv6_pool": "DEPT4_STATELESS",
+      "pc_device": "PC-D4",
+      "sw_port_pc": "FastEthernet0/4",
+      "ap_device": "AP-D4",
+      "sw_port_ap": "FastEthernet0/9",
+      "ssid": "Depto4_IPv6"
+    },
+    {
+      "numero": 5,
+      "nombre": "Departamento 5",
+      "vlan_id": 50,
+      "vlan_name": "DEPTO_5_SLAAC",
+      "subinterfaz": "GigabitEthernet0/0.50",
+      "prefijo": "2001:DB8:ACAD:50::/64",
+      "gateway": "2001:DB8:ACAD:50::1",
+      "gateway_cidr": "2001:DB8:ACAD:50::1/64",
+      "link_local": "FE80::1",
+      "metodo": "SLAAC",
+      "ra_managed_flag": false,
+      "ra_other_flag": false,
+      "dhcpv6_pool": null,
+      "pc_device": "PC-D5",
+      "sw_port_pc": "FastEthernet0/5",
+      "ap_device": "AP-D5",
+      "sw_port_ap": "FastEthernet0/10",
+      "ssid": "Depto5_IPv6"
+    }
+  ],
+  "servicios": {
+    "dns_server": {
+      "device": "SRV-DNS",
+      "interfaz_router": "GigabitEthernet0/1",
+      "prefijo": "2001:DB8:ACAD:99::/64",
+      "router_ipv6": "2001:DB8:ACAD:99::1/64",
+      "server_ipv6": "2001:DB8:ACAD:99::10",
+      "server_prefix_len": 64,
+      "server_link_local": "FE80::99:10",
+      "gateway_ipv6": "2001:DB8:ACAD:99::1",
+      "registros_aaaa": [
+        {
+          "nombre": "dns.propiedadhorizontal.local",
+          "ipv6": "2001:DB8:ACAD:99::10"
+        },
+        {
+          "nombre": "portal.propiedadhorizontal.local",
+          "ipv6": "2001:DB8:ACAD:99::10"
+        },
+        {
+          "nombre": "administracion.propiedadhorizontal.local",
+          "ipv6": "2001:DB8:ACAD:99::10"
+        },
+        {
+          "nombre": "r1.propiedadhorizontal.local",
+          "ipv6": "2001:DB8:ACAD:99::1"
+        },
+        {
+          "nombre": "depto1-gw.propiedadhorizontal.local",
+          "ipv6": "2001:DB8:ACAD:10::1"
+        },
+        {
+          "nombre": "depto2-gw.propiedadhorizontal.local",
+          "ipv6": "2001:DB8:ACAD:20::1"
+        },
+        {
+          "nombre": "depto3-gw.propiedadhorizontal.local",
+          "ipv6": "2001:DB8:ACAD:30::1"
+        },
+        {
+          "nombre": "depto4-gw.propiedadhorizontal.local",
+          "ipv6": "2001:DB8:ACAD:40::1"
+        },
+        {
+          "nombre": "depto5-gw.propiedadhorizontal.local",
+          "ipv6": "2001:DB8:ACAD:50::1"
+        }
+      ]
+    },
+    "wan_cloud": {
+      "device": "Cloud-PT",
+      "interfaz_router": "GigabitEthernet0/2",
+      "prefijo": "2001:DB8:ACAD:FF::/64",
+      "router_ipv6": "2001:DB8:ACAD:FF::1/64"
+    }
+  },
+  "devices": [
+    {
+      "name": "Cloud-PT",
+      "model": "Cloud-PT",
+      "role": "Nube ISP / Red Externa",
+      "x": 250,
+      "y": 120,
+      "power": true
+    },
+    {
+      "name": "R1",
+      "model": "2911",
+      "role": "Router Principal (Router-on-a-Stick IPv6, RA, DHCPv6)",
+      "x": 550,
+      "y": 120,
+      "power": true,
+      "config_file": "configuraciones/router_ipv6.txt"
+    },
+    {
+      "name": "SRV-DNS",
+      "model": "Server-PT",
+      "role": "Servidor DNS IPv6 y Servicios Internos",
+      "x": 850,
+      "y": 120,
+      "power": true,
+      "config_file": "configuraciones/servidor_dns.txt",
+      "ipv6_config": {
+        "mode": "static",
+        "address": "2001:DB8:ACAD:99::10",
+        "prefix": 64,
+        "link_local": "FE80::99:10",
+        "gateway": "2001:DB8:ACAD:99::1",
+        "dns": "2001:DB8:ACAD:99::10",
+        "dns_service_enabled": true
+      }
+    },
+    {
+      "name": "SW1",
+      "model": "2960-24TT",
+      "role": "Switch Principal de Distribución por Departamento (VLANs 10-50)",
+      "x": 550,
+      "y": 280,
+      "power": true,
+      "config_file": "configuraciones/switch_vlan.txt"
+    },
+    {
+      "name": "AP-D1",
+      "model": "AccessPoint-PT",
+      "role": "Access Point Departamento 1 (VLAN 10 - SLAAC)",
+      "x": 150,
+      "y": 450,
+      "power": true,
+      "ssid": "Depto1_IPv6",
+      "vlan": 10
+    },
+    {
+      "name": "AP-D2",
+      "model": "AccessPoint-PT",
+      "role": "Access Point Departamento 2 (VLAN 20 - DHCPv6 Stateless)",
+      "x": 350,
+      "y": 450,
+      "power": true,
+      "ssid": "Depto2_IPv6",
+      "vlan": 20
+    },
+    {
+      "name": "AP-D3",
+      "model": "AccessPoint-PT",
+      "role": "Access Point Departamento 3 (VLAN 30 - DHCPv6 Stateful)",
+      "x": 550,
+      "y": 450,
+      "power": true,
+      "ssid": "Depto3_IPv6",
+      "vlan": 30
+    },
+    {
+      "name": "AP-D4",
+      "model": "AccessPoint-PT",
+      "role": "Access Point Departamento 4 (VLAN 40 - DHCPv6 Stateless)",
+      "x": 750,
+      "y": 450,
+      "power": true,
+      "ssid": "Depto4_IPv6",
+      "vlan": 40
+    },
+    {
+      "name": "AP-D5",
+      "model": "AccessPoint-PT",
+      "role": "Access Point Departamento 5 (VLAN 50 - SLAAC)",
+      "x": 950,
+      "y": 450,
+      "power": true,
+      "ssid": "Depto5_IPv6",
+      "vlan": 50
+    },
+    {
+      "name": "PC-D1",
+      "model": "PC-PT",
+      "role": "Terminal de Prueba Departamento 1 (VLAN 10 - SLAAC)",
+      "x": 150,
+      "y": 600,
+      "power": true,
+      "vlan": 10,
+      "ipv6_config": {
+        "mode": "slaac",
+        "prefix": "2001:DB8:ACAD:10::/64",
+        "gateway": "2001:DB8:ACAD:10::1",
+        "link_local_gateway": "FE80::1",
+        "dns": ""
+      }
+    },
+    {
+      "name": "PC-D2",
+      "model": "PC-PT",
+      "role": "Terminal de Prueba Departamento 2 (VLAN 20 - DHCPv6 Stateless)",
+      "x": 350,
+      "y": 600,
+      "power": true,
+      "vlan": 20,
+      "ipv6_config": {
+        "mode": "stateless",
+        "prefix": "2001:DB8:ACAD:20::/64",
+        "gateway": "2001:DB8:ACAD:20::1",
+        "link_local_gateway": "FE80::1",
+        "dns": "2001:DB8:ACAD:99::10"
+      }
+    },
+    {
+      "name": "PC-D3",
+      "model": "PC-PT",
+      "role": "Terminal de Prueba Departamento 3 (VLAN 30 - DHCPv6 Stateful)",
+      "x": 550,
+      "y": 600,
+      "power": true,
+      "vlan": 30,
+      "ipv6_config": {
+        "mode": "stateful",
+        "prefix": "2001:DB8:ACAD:30::/64",
+        "gateway": "2001:DB8:ACAD:30::1",
+        "link_local_gateway": "FE80::1",
+        "dns": "2001:DB8:ACAD:99::10"
+      }
+    },
+    {
+      "name": "PC-D4",
+      "model": "PC-PT",
+      "role": "Terminal de Prueba Departamento 4 (VLAN 40 - DHCPv6 Stateless)",
+      "x": 750,
+      "y": 600,
+      "power": true,
+      "vlan": 40,
+      "ipv6_config": {
+        "mode": "stateless",
+        "prefix": "2001:DB8:ACAD:40::/64",
+        "gateway": "2001:DB8:ACAD:40::1",
+        "link_local_gateway": "FE80::1",
+        "dns": "2001:DB8:ACAD:99::10"
+      }
+    },
+    {
+      "name": "PC-D5",
+      "model": "PC-PT",
+      "role": "Terminal de Prueba Departamento 5 (VLAN 50 - SLAAC)",
+      "x": 950,
+      "y": 600,
+      "power": true,
+      "vlan": 50,
+      "ipv6_config": {
+        "mode": "slaac",
+        "prefix": "2001:DB8:ACAD:50::/64",
+        "gateway": "2001:DB8:ACAD:50::1",
+        "link_local_gateway": "FE80::1",
+        "dns": ""
+      }
+    }
+  ],
+  "links": [
+    {
+      "a": "R1",
+      "aport": "GigabitEthernet0/0",
+      "b": "SW1",
+      "bport": "GigabitEthernet0/1",
+      "kind": "copper",
+      "description": "Troncal 802.1Q (VLANs 10,20,30,40,50)"
+    },
+    {
+      "a": "R1",
+      "aport": "GigabitEthernet0/1",
+      "b": "SRV-DNS",
+      "bport": "FastEthernet0",
+      "kind": "copper",
+      "description": "Enlace Servicios Internos DNS (2001:DB8:ACAD:99::/64)"
+    },
+    {
+      "a": "R1",
+      "aport": "GigabitEthernet0/2",
+      "b": "Cloud-PT",
+      "bport": "Port 0",
+      "kind": "copper",
+      "description": "Enlace WAN hacia ISP (2001:DB8:ACAD:FF::/64)"
+    },
+    {
+      "a": "SW1",
+      "aport": "FastEthernet0/1",
+      "b": "PC-D1",
+      "bport": "FastEthernet0",
+      "kind": "copper",
+      "description": "Acceso VLAN 10 - PC Departamento 1 (SLAAC)"
+    },
+    {
+      "a": "SW1",
+      "aport": "FastEthernet0/2",
+      "b": "PC-D2",
+      "bport": "FastEthernet0",
+      "kind": "copper",
+      "description": "Acceso VLAN 20 - PC Departamento 2 (DHCPv6 Stateless)"
+    },
+    {
+      "a": "SW1",
+      "aport": "FastEthernet0/3",
+      "b": "PC-D3",
+      "bport": "FastEthernet0",
+      "kind": "copper",
+      "description": "Acceso VLAN 30 - PC Departamento 3 (DHCPv6 Stateful)"
+    },
+    {
+      "a": "SW1",
+      "aport": "FastEthernet0/4",
+      "b": "PC-D4",
+      "bport": "FastEthernet0",
+      "kind": "copper",
+      "description": "Acceso VLAN 40 - PC Departamento 4 (DHCPv6 Stateless)"
+    },
+    {
+      "a": "SW1",
+      "aport": "FastEthernet0/5",
+      "b": "PC-D5",
+      "bport": "FastEthernet0",
+      "kind": "copper",
+      "description": "Acceso VLAN 50 - PC Departamento 5 (SLAAC)"
+    },
+    {
+      "a": "SW1",
+      "aport": "FastEthernet0/6",
+      "b": "AP-D1",
+      "bport": "Port 0",
+      "kind": "copper",
+      "description": "Acceso VLAN 10 - AP Departamento 1"
+    },
+    {
+      "a": "SW1",
+      "aport": "FastEthernet0/7",
+      "b": "AP-D2",
+      "bport": "Port 0",
+      "kind": "copper",
+      "description": "Acceso VLAN 20 - AP Departamento 2"
+    },
+    {
+      "a": "SW1",
+      "aport": "FastEthernet0/8",
+      "b": "AP-D3",
+      "bport": "Port 0",
+      "kind": "copper",
+      "description": "Acceso VLAN 30 - AP Departamento 3"
+    },
+    {
+      "a": "SW1",
+      "aport": "FastEthernet0/9",
+      "b": "AP-D4",
+      "bport": "Port 0",
+      "kind": "copper",
+      "description": "Acceso VLAN 40 - AP Departamento 4"
+    },
+    {
+      "a": "SW1",
+      "aport": "FastEthernet0/10",
+      "b": "AP-D5",
+      "bport": "Port 0",
+      "kind": "copper",
+      "description": "Acceso VLAN 50 - AP Departamento 5"
+    }
+  ],
+  "instrucciones_archivos": [
+    "instrucciones/hito_01.html",
+    "instrucciones/hito_02.html",
+    "instrucciones/hito_03.html",
+    "instrucciones/hito_04.html",
+    "instrucciones/hito_05.html",
+    "instrucciones/hito_06.html",
+    "instrucciones/hito_07.html",
+    "instrucciones/hito_08.html",
+    "instrucciones/hito_09.html",
+    "instrucciones/hito_10.html"
+  ],
+  "fallos_hito_10": [
+    {
+      "id": "FALLO_01_VLAN40_TRONCAL",
+      "dispositivo": "SW1",
+      "interfaz": "GigabitEthernet0/1",
+      "descripcion": "La VLAN 40 está omitida en la lista de VLANs permitidas del enlace troncal Gi0/1.",
+      "linea_original": " switchport trunk allowed vlan 10,20,30,40,50",
+      "linea_con_fallo": " switchport trunk allowed vlan 10,20,30,50"
+    },
+    {
+      "id": "FALLO_02_FLAG_O_DEPTO2",
+      "dispositivo": "R1",
+      "interfaz": "GigabitEthernet0/0.20",
+      "descripcion": "Falta el flag O (ipv6 nd other-config-flag) en la subinterfaz del Departamento 2 (DHCPv6 Stateless).",
+      "linea_original": " ipv6 nd other-config-flag",
+      "omitir_en_subinterfaz": "interface GigabitEthernet0/0.20"
+    },
+    {
+      "id": "FALLO_03_DHCP_BIND_DEPTO3",
+      "dispositivo": "R1",
+      "interfaz": "GigabitEthernet0/0.30",
+      "descripcion": "Falta la asociación del servidor DHCPv6 (ipv6 dhcp server DEPT3_STATEFUL) en la subinterfaz del Departamento 3.",
+      "linea_original": " ipv6 dhcp server DEPT3_STATEFUL",
+      "omitir_en_subinterfaz": "interface GigabitEthernet0/0.30"
+    }
+  ]
+}

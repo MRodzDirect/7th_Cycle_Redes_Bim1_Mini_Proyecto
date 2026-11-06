@@ -1,0 +1,6 @@
+# Dependencias del Generador Automático de Laboratorios IPv6 (.pka / .pkt)
+# Nota: El núcleo de generación (scripts/ y pkt_core) funciona con la biblioteca
+# estándar de Python 3.10+ en Windows PowerShell y Ubuntu WSL sin paquetes externos.
+# Los siguientes paquetes son opcionales para pruebas extendidas y validación de modelos:
+pytest>=8.0.0
+pydantic>=2.6.0

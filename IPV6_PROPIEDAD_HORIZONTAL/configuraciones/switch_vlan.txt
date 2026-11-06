@@ -1,0 +1,118 @@
+! =====================================================================
+! Configuración completa de Switch SW1 (Cisco Catalyst 2960-24TT)
+! Escenario: Segmentación por VLAN para 5 Departamentos en Propiedad Horizontal
+! =====================================================================
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SW1
+!
+! --- Definición de VLANs por Departamento ---
+vlan 10
+ name DEPTO_1_SLAAC
+!
+vlan 20
+ name DEPTO_2_STATELESS
+!
+vlan 30
+ name DEPTO_3_STATEFUL
+!
+vlan 40
+ name DEPTO_4_STATELESS
+!
+vlan 50
+ name DEPTO_5_SLAAC
+!
+! --- Puertos de Acceso para PCs de Prueba (FastEthernet0/1 a 0/5) ---
+interface FastEthernet0/1
+ description PC-D1_Departamento_1_SLAAC
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/2
+ description PC-D2_Departamento_2_Stateless
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/3
+ description PC-D3_Departamento_3_Stateful
+ switchport mode access
+ switchport access vlan 30
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/4
+ description PC-D4_Departamento_4_Stateless
+ switchport mode access
+ switchport access vlan 40
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/5
+ description PC-D5_Departamento_5_SLAAC
+ switchport mode access
+ switchport access vlan 50
+ spanning-tree portfast
+ no shutdown
+!
+! --- Puertos de Acceso para Access Points (FastEthernet0/6 a 0/10) ---
+interface FastEthernet0/6
+ description AP-D1_Departamento_1_SLAAC
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/7
+ description AP-D2_Departamento_2_Stateless
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/8
+ description AP-D3_Departamento_3_Stateful
+ switchport mode access
+ switchport access vlan 30
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/9
+ description AP-D4_Departamento_4_Stateless
+ switchport mode access
+ switchport access vlan 40
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/10
+ description AP-D5_Departamento_5_SLAAC
+ switchport mode access
+ switchport access vlan 50
+ spanning-tree portfast
+ no shutdown
+!
+! --- Enlace Troncal 802.1Q hacia Router R1 (GigabitEthernet0/1) ---
+interface GigabitEthernet0/1
+ description Troncal_802.1Q_hacia_R1_Gi0/0
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40,50
+ no shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+line con 0
+ logging synchronous
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+end

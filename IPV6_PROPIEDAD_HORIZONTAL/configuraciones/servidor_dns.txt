@@ -1,0 +1,27 @@
+# =====================================================================
+# Especificación de Configuración del Servidor DNS (SRV-DNS - Server-PT)
+# Escenario: Propiedad Horizontal IPv6 - Red de Servicios Internos
+# =====================================================================
+
+[INTERFAZ_FASTETHERNET0]
+metodo_ipv6 = ESTATICO
+direccion_ipv6 = 2001:DB8:ACAD:99::10
+prefijo_ipv6 = 64
+link_local = FE80::99:10
+gateway_ipv6 = 2001:DB8:ACAD:99::1
+dns_ipv6 = 2001:DB8:ACAD:99::10
+
+[SERVICIO_DNS]
+habilitado = true
+dominio_principal = propiedadhorizontal.local
+
+[REGISTROS_AAAA]
+dns.propiedadhorizontal.local = 2001:DB8:ACAD:99::10
+portal.propiedadhorizontal.local = 2001:DB8:ACAD:99::10
+administracion.propiedadhorizontal.local = 2001:DB8:ACAD:99::10
+r1.propiedadhorizontal.local = 2001:DB8:ACAD:99::1
+depto1-gw.propiedadhorizontal.local = 2001:DB8:ACAD:10::1
+depto2-gw.propiedadhorizontal.local = 2001:DB8:ACAD:20::1
+depto3-gw.propiedadhorizontal.local = 2001:DB8:ACAD:30::1
+depto4-gw.propiedadhorizontal.local = 2001:DB8:ACAD:40::1
+depto5-gw.propiedadhorizontal.local = 2001:DB8:ACAD:50::1

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hito 2: Configuración de VLANs y Enlaces Troncales</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #1e293b; line-height: 1.5; margin: 12px; }
+  h2 { color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
+  h3 { color: #1d4ed8; margin-top: 14px; margin-bottom: 6px; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 12px; }
+  th, td { border: 1px solid #cbd5e1; padding: 6px 8px; text-align: left; }
+  th { background-color: #eff6ff; color: #1e3a8a; }
+  pre, code { background-color: #f1f5f9; font-family: Consolas, monospace; padding: 2px 5px; border-radius: 3px; }
+  pre { padding: 8px; border-left: 3px solid #2563eb; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h2>Hito 2 (2/10): Configuración de VLANs y Enlace Troncal 802.1Q en SW1</h2>
+
+<h3>1. Objetivo del Hito</h3>
+<p>Crear las 5 VLANs residenciales en el switch <code>SW1</code>, asignar los puertos de acceso para las PCs y Access Points de cada departamento, y configurar el enlace troncal IEEE 802.1Q hacia el router <code>R1</code>.</p>
+
+<h3>2. Contexto Técnico</h3>
+<p>En una propiedad horizontal, el aislamiento de capa 2 evita que los dispositivos de un departamento intercepten anuncios Router Advertisement (RA) o respuestas DHCPv6 pertenecientes a otro departamento. Cada VLAN transporta únicamente el prefijo <code>/64</code> asignado a su departamento.</p>
+
+<table>
+  <thead>
+    <tr><th>VLAN ID</th><th>Nombre de VLAN</th><th>Puerto PC</th><th>Puerto Access Point</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>10</code></td><td><code>DEPTO_1_SLAAC</code></td><td><code>FastEthernet0/1</code> (<code>PC-D1</code>)</td><td><code>FastEthernet0/6</code> (<code>AP-D1</code>)</td></tr>
+    <tr><td><code>20</code></td><td><code>DEPTO_2_STATELESS</code></td><td><code>FastEthernet0/2</code> (<code>PC-D2</code>)</td><td><code>FastEthernet0/7</code> (<code>AP-D2</code>)</td></tr>
+    <tr><td><code>30</code></td><td><code>DEPTO_3_STATEFUL</code></td><td><code>FastEthernet0/3</code> (<code>PC-D3</code>)</td><td><code>FastEthernet0/8</code> (<code>AP-D3</code>)</td></tr>
+    <tr><td><code>40</code></td><td><code>DEPTO_4_STATELESS</code></td><td><code>FastEthernet0/4</code> (<code>PC-D4</code>)</td><td><code>FastEthernet0/9</code> (<code>AP-D4</code>)</td></tr>
+    <tr><td><code>50</code></td><td><code>DEPTO_5_SLAAC</code></td><td><code>FastEthernet0/5</code> (<code>PC-D5</code>)</td><td><code>FastEthernet0/10</code> (<code>AP-D5</code>)</td></tr>
+  </tbody>
+</table>
+
+<h3>3. Dispositivos Involucrados</h3>
+<p>Switch principal <code>SW1</code> (Cisco Catalyst 2960-24TT).</p>
+
+<h3>4. Comandos Necesarios</h3>
+<pre>
+SW1(config)# vlan 10
+SW1(config-vlan)# name DEPTO_1_SLAAC
+SW1(config)# vlan 20
+SW1(config-vlan)# name DEPTO_2_STATELESS
+SW1(config)# vlan 30
+SW1(config-vlan)# name DEPTO_3_STATEFUL
+SW1(config)# vlan 40
+SW1(config-vlan)# name DEPTO_4_STATELESS
+SW1(config)# vlan 50
+SW1(config-vlan)# name DEPTO_5_SLAAC
+!
+SW1(config)# interface FastEthernet0/1
+SW1(config-if)# switchport mode access
+SW1(config-if)# switchport access vlan 10
+SW1(config-if)# spanning-tree portfast
+! (Repetir para Fa0/2 a Fa0/10 según tabla)
+!
+SW1(config)# interface GigabitEthernet0/1
+SW1(config-if)# switchport mode trunk
+SW1(config-if)# switchport trunk allowed vlan 10,20,30,40,50
+SW1(config-if)# no shutdown
+</pre>
+
+<h3>5. Procedimiento Paso a Paso</h3>
+<ol>
+  <li>Cree las VLANs 10, 20, 30, 40 y 50 con los nombres exactos indicados en la tabla.</li>
+  <li>Configure los puertos <code>FastEthernet0/1</code> al <code>FastEthernet0/5</code> (PCs) y <code>FastEthernet0/6</code> al <code>FastEthernet0/10</code> (APs) en modo acceso con su respectiva VLAN y <code>spanning-tree portfast</code>.</li>
+  <li>Configure el puerto <code>GigabitEthernet0/1</code> como troncal 802.1Q permitiendo las VLANs <code>10,20,30,40,50</code>.</li>
+</ol>
+
+<h3>6. Resultado Esperado</h3>
+<p>Las 5 VLANs aparecen activas en la base de datos de VLANs y el puerto <code>Gi0/1</code> opera en modo <code>trunk</code>.</p>
+
+<h3>7. Evidencia Solicitada al Estudiante</h3>
+<p>Salida de los comandos <code>show vlan brief</code> y <code>show interfaces trunk</code> en <code>SW1</code>.</p>
+
+<h3>8. Criterio de Evaluación</h3>
+<p>Evaluación automática de los nodos <code>VLANS</code> (10, 20, 30, 40, 50), <code>Access VLAN</code> en <code>Fa0/1..10</code> y modo troncal en <code>Gi0/1</code>.</p>
+</body>
+</html>
