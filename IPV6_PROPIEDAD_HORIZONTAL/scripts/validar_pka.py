@@ -77,6 +77,10 @@ def validar_archivo_pkt(ruta_pkt: str | os.PathLike) -> dict[str, Any]:
 
     # Mapa de SAVE_REF_ID -> (nombre, modelo)
     mapa_ref: dict[str, tuple[str, str]] = {}
+    mapa_dev_addr: dict[str, str] = {}
+    lista_dev_addrs: list[tuple[str, str]] = []
+    lista_mem_addrs: list[tuple[str, str]] = []
+
     for disp in dispositivos:
         motor = disp.find("ENGINE")
         if motor is None:
@@ -87,6 +91,21 @@ def validar_archivo_pkt(ruta_pkt: str | os.PathLike) -> dict[str, Any]:
         modelo = tipo_el.get("model", "") if tipo_el is not None else ""
         ref_id = motor.findtext("SAVE_REF_ID") or ""
         mapa_ref[ref_id] = (nombre, modelo)
+
+        # Auditoría de DEV_ADDR y MEM_ADDR en WORKSPACE/LOGICAL
+        dev_addr = disp.findtext("WORKSPACE/LOGICAL/DEV_ADDR") or ""
+        mem_addr = disp.findtext("WORKSPACE/LOGICAL/MEM_ADDR") or ""
+        if not dev_addr:
+            errores.append(f"El dispositivo {nombre} no tiene <WORKSPACE><LOGICAL><DEV_ADDR>")
+        else:
+            mapa_dev_addr[ref_id] = dev_addr
+            mapa_dev_addr[nombre] = dev_addr
+            lista_dev_addrs.append((nombre, dev_addr))
+
+        if not mem_addr:
+            errores.append(f"El dispositivo {nombre} no tiene <WORKSPACE><LOGICAL><MEM_ADDR>")
+        else:
+            lista_mem_addrs.append((nombre, mem_addr))
 
         if (motor.findtext("POWER") or "").lower() != "true":
             errores.append(f"El dispositivo {nombre} ({modelo}) tiene <ENGINE><POWER> apagado")
@@ -108,7 +127,23 @@ def validar_archivo_pkt(ruta_pkt: str | os.PathLike) -> dict[str, Any]:
                         f"Residuo IPv4 de plantilla detectado en {nombre}: <IP>{ip_v4}</IP>"
                     )
 
-    # Validar puertos de enlaces contra port_model.json
+    # Validar unicidad de DEV_ADDR
+    vistos_dev: dict[str, list[str]] = {}
+    for nom, da in lista_dev_addrs:
+        vistos_dev.setdefault(da, []).append(nom)
+    for da, noms in vistos_dev.items():
+        if len(noms) > 1:
+            errores.append(f"DEV_ADDR duplicado '{da}' compartido por dispositivos {noms}")
+
+    # Validar unicidad de MEM_ADDR
+    vistos_mem: dict[str, list[str]] = {}
+    for nom, ma in lista_mem_addrs:
+        vistos_mem.setdefault(ma, []).append(nom)
+    for ma, noms in vistos_mem.items():
+        if len(noms) > 1:
+            errores.append(f"MEM_ADDR duplicado '{ma}' compartido por dispositivos {noms}")
+
+    # Validar puertos de enlaces contra port_model.json y consistencia de punteros de memoria
     port_model = {}
     if RUTA_PORT_MODEL.exists():
         port_model = json.loads(RUTA_PORT_MODEL.read_text(encoding="utf-8"))
@@ -137,6 +172,22 @@ def validar_archivo_pkt(ruta_pkt: str | os.PathLike) -> dict[str, Any]:
                 errores.append(f"Puerto inválido en {nom_a} ({mod_a}): {puertos[0]}")
             if puertos[1] not in puertos_validos_b:
                 errores.append(f"Puerto inválido en {nom_b} ({mod_b}): {puertos[1]}")
+
+        # Validar alineación de FROM_DEVICE_MEM_ADDR y TO_DEVICE_MEM_ADDR con el DEV_ADDR correspondiente
+        f_d_mem = cable.findtext("FROM_DEVICE_MEM_ADDR") or ""
+        t_d_mem = cable.findtext("TO_DEVICE_MEM_ADDR") or ""
+        esperado_from = mapa_dev_addr.get(from_id)
+        esperado_to = mapa_dev_addr.get(to_id)
+        if esperado_from and f_d_mem != esperado_from:
+            errores.append(
+                f"Enlace #{idx} ({from_id} -> {to_id}): FROM_DEVICE_MEM_ADDR '{f_d_mem}' "
+                f"no coincide con DEV_ADDR '{esperado_from}' del dispositivo de origen"
+            )
+        if esperado_to and t_d_mem != esperado_to:
+            errores.append(
+                f"Enlace #{idx} ({from_id} -> {to_id}): TO_DEVICE_MEM_ADDR '{t_d_mem}' "
+                f"no coincide con DEV_ADDR '{esperado_to}' del dispositivo de destino"
+            )
 
     return {
         "archivo": str(ruta),
@@ -237,6 +288,81 @@ def validar_archivo_pka(ruta_pka: str | os.PathLike) -> dict[str, Any]:
     password_act = nodo_act.get("PASS", "") if nodo_act is not None else ""
     if not password_act:
         advertencias.append("El atributo ACTIVITY/@PASS está vacío")
+
+    # Validar atributos de temporizador en <ACTIVITY>
+    if nodo_act is not None:
+        cd_left = nodo_act.get("COUNTDOWNLEFT", "0")
+        try:
+            if int(cd_left) < 0:
+                errores.append(
+                    f"Atributo de temporizador inválido en <ACTIVITY>: COUNTDOWNLEFT='{cd_left}' (no debe ser negativo)"
+                )
+        except ValueError:
+            errores.append(f"Atributo COUNTDOWNLEFT no numérico: '{cd_left}'")
+
+        cd_ms = nodo_act.get("COUNTDOWNMS", "0")
+        try:
+            if int(cd_ms) < 0:
+                errores.append(f"Atributo COUNTDOWNMS no debe ser negativo: '{cd_ms}'")
+        except ValueError:
+            errores.append(f"Atributo COUNTDOWNMS no numérico: '{cd_ms}'")
+
+        elapsed = nodo_act.get("ELAPSED", "0")
+        try:
+            if int(elapsed) < 0:
+                errores.append(f"Atributo ELAPSED no debe ser negativo: '{elapsed}'")
+        except ValueError:
+            errores.append(f"Atributo ELAPSED no numérico: '{elapsed}'")
+
+    # Validar que cada una de las 3 redes embebidas tenga DEV_ADDR únicos y punteros alineados
+    for idx_red, b_xml in enumerate(bloques_pkt):
+        try:
+            net_root = ET.fromstring(b_xml)
+        except Exception as exc_b:
+            errores.append(f"Red embebida #{idx_red} XML corrupto: {exc_b}")
+            continue
+
+        devs_net = net_root.findall(".//NETWORK/DEVICES/DEVICE")
+        mapa_dev_net: dict[str, str] = {}
+        vistos_dev_net: dict[str, list[str]] = {}
+
+        for d in devs_net:
+            ref = d.findtext("SAVE_REF_ID") or d.findtext("ENGINE/SAVE_REF_ID") or ""
+            nom = d.findtext("NAME") or d.findtext("ENGINE/NAME") or ""
+            da = d.findtext("WORKSPACE/LOGICAL/DEV_ADDR") or ""
+            if not da:
+                errores.append(f"Red embebida #{idx_red}: Dispositivo {nom} sin DEV_ADDR")
+            else:
+                mapa_dev_net[ref] = da
+                mapa_dev_net[nom] = da
+                vistos_dev_net.setdefault(da, []).append(nom)
+
+        for da, noms in vistos_dev_net.items():
+            if len(noms) > 1:
+                errores.append(
+                    f"Red embebida #{idx_red}: DEV_ADDR duplicado '{da}' en dispositivos {noms}"
+                )
+
+        for j_enl, enl in enumerate(net_root.findall(".//NETWORK/LINKS/LINK")):
+            cab = enl.find("CABLE")
+            if cab is None:
+                continue
+            frm = cab.findtext("FROM") or ""
+            to = cab.findtext("TO") or ""
+            f_mem = cab.findtext("FROM_DEVICE_MEM_ADDR") or ""
+            t_mem = cab.findtext("TO_DEVICE_MEM_ADDR") or ""
+            esp_f = mapa_dev_net.get(frm)
+            esp_t = mapa_dev_net.get(to)
+            if esp_f and f_mem != esp_f:
+                errores.append(
+                    f"Red embebida #{idx_red}, Enlace #{j_enl} ({frm} -> {to}): "
+                    f"FROM_DEVICE_MEM_ADDR '{f_mem}' != DEV_ADDR '{esp_f}'"
+                )
+            if esp_t and t_mem != esp_t:
+                errores.append(
+                    f"Red embebida #{idx_red}, Enlace #{j_enl} ({frm} -> {to}): "
+                    f"TO_DEVICE_MEM_ADDR '{t_mem}' != DEV_ADDR '{esp_t}'"
+                )
 
     comp_list = raiz.findtext("COMPONENT_LIST") or ""
     for cat_req in ("Ip", "Switching", "Routing", "Physical", "Other"):

@@ -36,7 +36,7 @@ class PruebasConfiguracionIPv6(unittest.TestCase):
         self.assertTrue(verif["r1_pool_stateful_prefix"])
         self.assertTrue(verif["sw1_trunk_gi0_1"])
         self.assertTrue(verif["srv_dns_habilitado"])
-        self.assertTrue(verif["srv_dns_registros_aaaa"])
+        self.assertTrue(verif["srv_dns_base_datos_limpia"])
 
     def test_02_auditoria_tres_fallos_hito10(self) -> None:
         """Verifica que la red de diagnóstico del Hito 10 contenga los 3 fallos previstos."""

@@ -132,17 +132,15 @@ def auditar_red_resuelta_ipv6(ruta_pkt: str | os.PathLike) -> dict[str, Any]:
     else:
         dns_en = srv.findtext(".//ENGINE/DNS_SERVER/ENABLED") == "1"
         rrs = srv.findall(".//ENGINE/DNS_SERVER/NAMESERVER-DATABASE/RESOURCE-RECORD")
-        aaaa_records = [
-            (r.findtext("NAME"), r.findtext("IPV6ADDRESS"))
-            for r in rrs
-            if r.findtext("TYPE") == "AAAA_REC"
-        ]
         verificaciones["srv_dns_habilitado"] = dns_en
-        verificaciones["srv_dns_registros_aaaa"] = len(aaaa_records) >= 4
+        verificaciones["srv_dns_base_datos_limpia"] = len(rrs) == 0
         if not dns_en:
             errores.append("SRV-DNS no tiene el servicio DNS habilitado (<ENABLED>1</ENABLED>)")
-        if len(aaaa_records) < 4:
-            errores.append(f"SRV-DNS tiene solo {len(aaaa_records)} registros AAAA_REC")
+        if len(rrs) > 0:
+            errores.append(
+                f"SRV-DNS contiene {len(rrs)} registros RESOURCE-RECORD precompilados; "
+                "Packet Tracer 9.0.1 requiere NAMESERVER-DATABASE vacía para evitar rechazo de archivo."
+            )
 
     return {
         "archivo": str(ruta),

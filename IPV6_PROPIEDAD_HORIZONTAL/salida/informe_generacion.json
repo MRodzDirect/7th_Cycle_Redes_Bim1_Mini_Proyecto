@@ -1,6 +1,6 @@
 {
   "proyecto": "Implementación de Direccionamiento Dinámico en una Red IPv6 (Propiedad Horizontal)",
-  "fecha_generacion": "2026-11-05T23:31:33.384755",
+  "fecha_generacion": "2026-11-07T18:19:19.031300",
   "backend_criptografico": "twofish128-python-optimizado",
   "plataforma_ejecucion": "win32",
   "python_version": "3.14.4",
@@ -66,8 +66,8 @@
     "topologia_inicial.pkt": {
       "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_inicial.pkt",
       "formato": "pkt",
-      "tamano_bytes": 80690,
-      "xml_bytes": 1037242,
+      "tamano_bytes": 80841,
+      "xml_bytes": 1038002,
       "dispositivos": 14,
       "enlaces": 13,
       "valido": true,
@@ -77,8 +77,8 @@
     "topologia_resuelta.pkt": {
       "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_resuelta.pkt",
       "formato": "pkt",
-      "tamano_bytes": 82379,
-      "xml_bytes": 1054708,
+      "tamano_bytes": 82345,
+      "xml_bytes": 1053845,
       "dispositivos": 14,
       "enlaces": 13,
       "valido": true,
@@ -88,8 +88,8 @@
     "topologia_diagnostico_hito10.pkt": {
       "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\topologia_diagnostico_hito10.pkt",
       "formato": "pkt",
-      "tamano_bytes": 82377,
-      "xml_bytes": 1054534,
+      "tamano_bytes": 82349,
+      "xml_bytes": 1053671,
       "dispositivos": 14,
       "enlaces": 13,
       "valido": true,
@@ -101,8 +101,8 @@
     "Grupo_IPV6_Estudiante.pka": {
       "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Estudiante.pka",
       "formato": "pka",
-      "tamano_bytes": 349241,
-      "xml_bytes": 5617652,
+      "tamano_bytes": 349483,
+      "xml_bytes": 5618295,
       "redes_embebidas": 3,
       "paginas_instrucciones": 10,
       "nodos_initialsetup": 804,
@@ -117,8 +117,8 @@
     "Grupo_IPV6_Maestro.pka": {
       "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Maestro.pka",
       "formato": "pka",
-      "tamano_bytes": 352801,
-      "xml_bytes": 5652584,
+      "tamano_bytes": 352653,
+      "xml_bytes": 5649981,
       "redes_embebidas": 3,
       "paginas_instrucciones": 10,
       "nodos_initialsetup": 804,
@@ -133,8 +133,8 @@
     "Grupo_IPV6_Diagnostico_Hito10.pka": {
       "archivo": "C:\\Users\\MRodz\\Documents\\U\\7th_Cycle\\Networking_and_Distributed_Systems\\Week 5\\Proyecto\\IPV6_PROPIEDAD_HORIZONTAL\\salida\\Grupo_IPV6_Diagnostico_Hito10.pka",
       "formato": "pka",
-      "tamano_bytes": 352791,
-      "xml_bytes": 5652236,
+      "tamano_bytes": 352656,
+      "xml_bytes": 5649633,
       "redes_embebidas": 3,
       "paginas_instrucciones": 10,
       "nodos_initialsetup": 804,
@@ -165,7 +165,7 @@
       "PC-D4_ipv6_activo": true,
       "PC-D5_ipv6_activo": true,
       "srv_dns_habilitado": true,
-      "srv_dns_registros_aaaa": true
+      "srv_dns_base_datos_limpia": true
     },
     "errores": []
   },

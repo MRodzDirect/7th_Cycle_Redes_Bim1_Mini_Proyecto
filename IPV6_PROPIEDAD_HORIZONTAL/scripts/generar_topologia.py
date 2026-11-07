@@ -44,6 +44,76 @@ def _asignar_subelemento(padre: ET.Element, etiqueta: str, valor: str) -> ET.Ele
     return nodo
 
 
+def normalizar_direcciones_red(raiz_red: ET.Element, offset_base: int = 0) -> None:
+    """Normaliza y garantiza DEV_ADDR y MEM_ADDR únicos para cada dispositivo
+    en una red Packet Tracer (<PACKETTRACER5> o <NETWORK>), y alinea los punteros
+    de memoria FROM_DEVICE_MEM_ADDR y TO_DEVICE_MEM_ADDR en los cables con el
+    DEV_ADDR del dispositivo correspondiente.
+    """
+    mapa_dev: dict[str, str] = {}
+    mapa_mem: dict[str, str] = {}
+
+    dispositivos = raiz_red.findall(".//NETWORK/DEVICES/DEVICE")
+    if not dispositivos:
+        dispositivos = raiz_red.findall(".//DEVICES/DEVICE")
+
+    for i, disp in enumerate(dispositivos):
+        ref_id = disp.findtext("SAVE_REF_ID") or disp.findtext("ENGINE/SAVE_REF_ID") or f"dev-{i}"
+        nombre = disp.findtext("NAME") or disp.findtext("ENGINE/NAME") or f"dev-{i}"
+        dev_addr = str(107890600000000 + offset_base + (i + 1) * 100000)
+        mem_addr = str(107890700000000 + offset_base + (i + 1) * 100000)
+        mapa_dev[ref_id] = dev_addr
+        mapa_dev[nombre] = dev_addr
+        mapa_mem[ref_id] = mem_addr
+        mapa_mem[nombre] = mem_addr
+
+        # Asegurar WORKSPACE/LOGICAL
+        ws = disp.find("WORKSPACE")
+        if ws is None:
+            ws = ET.SubElement(disp, "WORKSPACE")
+        logical = ws.find("LOGICAL")
+        if logical is None:
+            logical = ET.SubElement(ws, "LOGICAL")
+
+        _asignar_subelemento(logical, "DEV_ADDR", dev_addr)
+        _asignar_subelemento(logical, "MEM_ADDR", mem_addr)
+
+        # Si ENGINE tiene MEM_ADDR o DEV_ADDR, sincronizarlos
+        engine = disp.find("ENGINE")
+        if engine is not None:
+            if engine.find("MEM_ADDR") is not None:
+                _asignar_subelemento(engine, "MEM_ADDR", mem_addr)
+            if engine.find("DEV_ADDR") is not None:
+                _asignar_subelemento(engine, "DEV_ADDR", dev_addr)
+
+    enlaces = raiz_red.findall(".//NETWORK/LINKS/LINK")
+    if not enlaces:
+        enlaces = raiz_red.findall(".//LINKS/LINK")
+
+    for j, enl in enumerate(enlaces):
+        cable = enl.find("CABLE")
+        if cable is None:
+            continue
+        frm = cable.findtext("FROM") or ""
+        to = cable.findtext("TO") or ""
+
+        f_dev_addr = (
+            mapa_dev.get(frm)
+            or mapa_dev.get(frm.replace("save-ref-id:", ""))
+            or str(107890600000000 + (j + 1) * 100000 + 1)
+        )
+        t_dev_addr = (
+            mapa_dev.get(to)
+            or mapa_dev.get(to.replace("save-ref-id:", ""))
+            or str(107890600000000 + (j + 1) * 100000 + 2)
+        )
+
+        _asignar_subelemento(cable, "FROM_DEVICE_MEM_ADDR", f_dev_addr)
+        _asignar_subelemento(cable, "TO_DEVICE_MEM_ADDR", t_dev_addr)
+        _asignar_subelemento(cable, "FROM_PORT_MEM_ADDR", str(int(f_dev_addr) + (j + 1) * 10 + 1))
+        _asignar_subelemento(cable, "TO_PORT_MEM_ADDR", str(int(t_dev_addr) + (j + 1) * 10 + 2))
+
+
 def _limpiar_residuos_plantilla(dispositivo_el: ET.Element, modelo: str) -> None:
     """Elimina direcciones IPv4 residuales (1.1.1.1 / 192.168.10.2) y servicios
     heredados de la plantilla (ACS_CLIENTS, USERS, serverPool DHCPv4, etc.).
@@ -214,13 +284,11 @@ def _configurar_servidor_dns_ipv6(
     for hijo in list(base_datos):
         base_datos.remove(hijo)
 
-    for reg in registros_aaaa:
-        rr = ET.SubElement(base_datos, "RESOURCE-RECORD")
-        ET.SubElement(rr, "NAME").text = reg["nombre"]
-        ET.SubElement(rr, "TYPE").text = "AAAA_REC"
-        ET.SubElement(rr, "TTL").text = "86400"
-        ET.SubElement(rr, "IPADDRESS").text = ""
-        ET.SubElement(rr, "IPV6ADDRESS").text = reg["ipv6"]
+    # REGLA ESTRICTA CISCO PACKET TRACER 9.0.1:
+    # No serializar elementos <RESOURCE-RECORD> dentro de <NAMESERVER-DATABASE>.
+    # Packet Tracer 9.0.1 rechaza el documento completo ("Incompatible File") si
+    # se inyectan registros DNS estáticos precompilados. Se mantiene el servicio
+    # DNS activo (<ENABLED>1</ENABLED>) con la base de datos limpia (<NAMESERVER-DATABASE/>).
 
 
 def _sincronizar_startup_y_atributos_ios(
@@ -351,6 +419,10 @@ def construir_topologia_pkt(
             enlace["bport"],
             kind=enlace.get("kind", "copper"),
         )
+
+    # 5. Normalizar DEV_ADDR, MEM_ADDR y punteros de cable (FROM/TO_DEVICE_MEM_ADDR)
+    # para compatibilidad estricta con Cisco Packet Tracer 9.0.1
+    normalizar_direcciones_red(laboratorio.base)
 
     ruta_destino = Path(ruta_salida)
     ruta_destino.parent.mkdir(parents=True, exist_ok=True)

@@ -1,13 +1,13 @@
-[2026-11-05 23:30:57] [Paso 01/12] Cargando y validando especificación desde escenario.json (Backend: twofish128-python-optimizado)
-[2026-11-05 23:30:57] [Paso 02/12] Verificados 14 dispositivos, 13 enlaces y 5 departamentos IPv6
-[2026-11-05 23:30:57] [Paso 03/12] Construyendo red inicial del estudiante -> topologia_inicial.pkt
-[2026-11-05 23:30:58] [Paso 04/12] Construyendo red de respuesta (Answer Network) -> topologia_resuelta.pkt
-[2026-11-05 23:30:58] [Paso 05/12] Construyendo red de diagnóstico Hito 10 (3 fallos inyectados) -> topologia_diagnostico_hito10.pkt
-[2026-11-05 23:30:59] [Paso 06/12] Generando árboles de evaluación <INITIALSETUP> y <COMPARISONS> desde device_shapes.json
-[2026-11-05 23:30:59] [Paso 06/12] Árbol de scoring compilado: 8 dispositivos evaluados, 95 puntos totales
-[2026-11-05 23:30:59] [Paso 07/12] Ensamblando actividad principal del estudiante -> Grupo_IPV6_Estudiante.pka
-[2026-11-05 23:31:04] [Paso 08/12] Ensamblando actividad resuelta del docente (100% Check Results) -> Grupo_IPV6_Maestro.pka
-[2026-11-05 23:31:09] [Paso 09/12] Ensamblando actividad de diagnóstico Hito 10 -> Grupo_IPV6_Diagnostico_Hito10.pka
-[2026-11-05 23:31:15] [Paso 10/12] Ejecutando validación criptográfica EAX y estructural de archivos .pkt y .pka
-[2026-11-05 23:31:32] [Paso 11/12] Ejecutando auditoría técnica de protocolos IPv6, DHCPv6, RA, VLANs y DNS AAAA
-[2026-11-05 23:31:33] [Paso 12/12] Guardando informe_generacion.json y log_generacion.txt (Estado global: EXITOSO)
+[2026-11-07 18:19:01] [Paso 01/12] Cargando y validando especificación desde escenario.json (Backend: twofish128-python-optimizado)
+[2026-11-07 18:19:01] [Paso 02/12] Verificados 14 dispositivos, 13 enlaces y 5 departamentos IPv6
+[2026-11-07 18:19:01] [Paso 03/12] Construyendo red inicial del estudiante -> topologia_inicial.pkt
+[2026-11-07 18:19:02] [Paso 04/12] Construyendo red de respuesta (Answer Network) -> topologia_resuelta.pkt
+[2026-11-07 18:19:02] [Paso 05/12] Construyendo red de diagnóstico Hito 10 (3 fallos inyectados) -> topologia_diagnostico_hito10.pkt
+[2026-11-07 18:19:03] [Paso 06/12] Generando árboles de evaluación <INITIALSETUP> y <COMPARISONS> desde device_shapes.json
+[2026-11-07 18:19:03] [Paso 06/12] Árbol de scoring compilado: 8 dispositivos evaluados, 95 puntos totales
+[2026-11-07 18:19:03] [Paso 07/12] Ensamblando actividad principal del estudiante -> Grupo_IPV6_Estudiante.pka
+[2026-11-07 18:19:05] [Paso 08/12] Ensamblando actividad resuelta del docente (100% Check Results) -> Grupo_IPV6_Maestro.pka
+[2026-11-07 18:19:08] [Paso 09/12] Ensamblando actividad de diagnóstico Hito 10 -> Grupo_IPV6_Diagnostico_Hito10.pka
+[2026-11-07 18:19:10] [Paso 10/12] Ejecutando validación criptográfica EAX y estructural de archivos .pkt y .pka
+[2026-11-07 18:19:18] [Paso 11/12] Ejecutando auditoría técnica de protocolos IPv6, DHCPv6, RA, VLANs y DNS AAAA
+[2026-11-07 18:19:19] [Paso 12/12] Guardando informe_generacion.json y log_generacion.txt (Estado global: EXITOSO)

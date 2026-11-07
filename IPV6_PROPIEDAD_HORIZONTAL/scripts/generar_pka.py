@@ -53,6 +53,16 @@ def _ensamblar_archivo_pka(
         incomplete=metadata.get("feedback_incompleto", "Sigue avanzando con los hitos."),
         complete=metadata.get("feedback_completo", "¡Laboratorio completado al 100%!"),
     )
+    # Limpiar atributos de temporizador heredados de activity_skeleton.xml
+    # para evitar valores negativos (COUNTDOWNLEFT=-1175269632) y tiempo previo (ELAPSED=22369)
+    act._set_attr("ACTIVITY", "COUNTDOWNLEFT", "0")
+    act._set_attr("ACTIVITY", "COUNTDOWNMS", "0")
+    act._set_attr("ACTIVITY", "COUNTDOWN_EXPIRED", "0")
+    act._set_attr("ACTIVITY", "ELAPSED", "0")
+    act._set_attr("ACTIVITY", "FORWARD_ANS_SIM_MS", "0")
+    act._set_attr("ACTIVITY", "ENABLED", "no")
+    act._set_attr("ACTIVITY", "TIMERTYPE", "0")
+
     act.set_scoring_xml(init_scoring_xml, comp_scoring_xml)
     act.set_networks(initial_xml=xml_inicial, answer_xml=xml_respuesta)
     ruta_salida.parent.mkdir(parents=True, exist_ok=True)
